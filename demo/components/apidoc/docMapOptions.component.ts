@@ -1,7 +1,5 @@
 import { Component } from '@angular/core'
 
-// import { MapOptions, MarkerOptions, Point } from '../../../src'
-
 @Component({
   selector: 'doc-map-options',
   styles: [],

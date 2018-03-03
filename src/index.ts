@@ -22,7 +22,7 @@ export class BaiduMapModule {
 
 export { BMapInstance, MapOptions } from './types/Map'
 export { Point } from './types/Point'
-export { MarkerOptions } from './types/Marker'
+export { BMarker, MarkerOptions } from './types/Marker'
 export {
   ControlType,
   ControlAnchor,

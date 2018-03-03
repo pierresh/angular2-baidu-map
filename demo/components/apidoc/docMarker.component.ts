@@ -1,8 +1,7 @@
 import { Component } from '@angular/core'
 
-import { MapOptions, MarkerOptions, Point } from '../../../src'
+import { BMarker, MapOptions, MarkerOptions, Point } from '../../../src'
 import { environment } from '../../environments/environment'
-import { BMarker } from '../../../src/types/Marker'
 
 @Component({
   selector: 'doc-marker',
