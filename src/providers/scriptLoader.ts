@@ -38,8 +38,9 @@ export class ScriptLoader {
     window._scriptLoadState = LOADING_STATE.LOADING
     window._loadingCallbacks.push(cb)
 
-    const MAP_URL = `https://api.map.baidu.com/api?v=2.0&ak=
-    ${this._config.ak}&callback=baidumapinit&s=1`
+    const MAP_URL = `https://api.map.baidu.com/api?v=2.0&ak=${
+      this._config.ak
+    }&callback=baidumapinit&s=1`
 
     window.baidumapinit = () => {
       window._scriptLoadState = LOADING_STATE.LOADED
