@@ -20,10 +20,7 @@ export class MapService {
     })
   }
 
-  public createMap(
-    el: HTMLElement,
-    mapOptions: MapOptions
-  ): Promise<BMapInstance> {
+  public createMap(el: HTMLElement, mapOptions: MapOptions): Promise<BMapInstance> {
     return new Promise(resolve => {
       this._loader.load(() => {
         const map = new window.BMap.Map(el, mapOptions)
@@ -47,50 +44,28 @@ export class MapService {
     } = opts
 
     if (isBoolean(disableDragging)) {
-      this._map.then(map =>
-        map[(disableDragging ? 'disable' : 'enable') + 'Dragging']()
-      )
+      this._map.then(map => map[(disableDragging ? 'disable' : 'enable') + 'Dragging']())
     }
     if (isBoolean(enableScrollWheelZoom)) {
-      this._map.then(map =>
-        map[
-          (enableScrollWheelZoom ? 'enable' : 'disable') + 'ScrollWheelZoom'
-        ]()
-      )
+      this._map.then(map => map[(enableScrollWheelZoom ? 'enable' : 'disable') + 'ScrollWheelZoom']())
     }
     if (isBoolean(enableAutoResize)) {
-      this._map.then(map =>
-        map[(enableAutoResize ? 'enable' : 'disable') + 'AutoResize']()
-      )
+      this._map.then(map => map[(enableAutoResize ? 'enable' : 'disable') + 'AutoResize']())
     }
     if (isBoolean(disableDoubleClickZoom)) {
-      this._map.then(map =>
-        map[
-          (disableDoubleClickZoom ? 'disable' : 'enable') + 'DoubleClickZoom'
-        ]()
-      )
+      this._map.then(map => map[(disableDoubleClickZoom ? 'disable' : 'enable') + 'DoubleClickZoom']())
     }
     if (isBoolean(enableKeyboard)) {
-      this._map.then(map =>
-        map[(enableKeyboard ? 'enable' : 'disable') + 'Keyboard']()
-      )
+      this._map.then(map => map[(enableKeyboard ? 'enable' : 'disable') + 'Keyboard']())
     }
     if (isBoolean(enableInertialDragging)) {
-      this._map.then(map =>
-        map[
-          (enableInertialDragging ? 'enable' : 'disable') + 'InertialDragging'
-        ]()
-      )
+      this._map.then(map => map[(enableInertialDragging ? 'enable' : 'disable') + 'InertialDragging']())
     }
     if (isBoolean(enableContinuousZoom)) {
-      this._map.then(map =>
-        map[(enableContinuousZoom ? 'enable' : 'disable') + 'ContinuousZoom']()
-      )
+      this._map.then(map => map[(enableContinuousZoom ? 'enable' : 'disable') + 'ContinuousZoom']())
     }
     if (isBoolean(disablePinchToZoom)) {
-      this._map.then(map =>
-        map[(disablePinchToZoom ? 'disable' : 'enable') + 'PinchToZoom']()
-      )
+      this._map.then(map => map[(disablePinchToZoom ? 'disable' : 'enable') + 'PinchToZoom']())
     }
     if (!isNull(opts.cursor)) {
       this._map.then(map => map.setDefaultCursor(opts.cursor))
@@ -108,9 +83,7 @@ export class MapService {
     }
   }
 
-  public addOverlay(
-    cb: (map: BMapInstance) => Overlay
-  ): Promise<{ map: BMapInstance; overlay: Overlay }> {
+  public addOverlay(cb: (map: BMapInstance) => Overlay): Promise<{ map: BMapInstance; overlay: Overlay }> {
     return this._map.then((map: BMapInstance) => {
       const overlay = cb(map)
       map.addOverlay(overlay)
@@ -124,9 +97,7 @@ export class MapService {
     })
   }
 
-  public addControl(
-    cb: (map: BMapInstance) => BControl
-  ): Promise<{ map: BMapInstance; control: BControl }> {
+  public addControl(cb: (map: BMapInstance) => BControl): Promise<{ map: BMapInstance; control: BControl }> {
     return this._map.then((map: BMapInstance) => {
       const control = cb(map)
       map.addControl(control)

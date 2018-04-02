@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { BMapInstance, MapOptions, Point } from '../../../src'
+import { BMapInstance, MapOptions, Point } from 'angular2-baidu-map'
 
 @Component({
   styles: [

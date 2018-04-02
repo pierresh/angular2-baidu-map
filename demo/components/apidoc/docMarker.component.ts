@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { BMarker, MapOptions, MarkerOptions, Point } from '../../../src'
+import { MapOptions, MarkerOptions, Point } from 'angular2-baidu-map'
 import { environment } from '../../environments/environment'
 
 @Component({
@@ -172,7 +172,7 @@ export class DocMarkerComponent {
     }, 5000)
   }
 
-  public showWindow({ e, marker, map }: any): void {
+  public showWindow({ marker, map }: any): void {
     map.openInfoWindow(
       new window.BMap.InfoWindow('地址：浦东南路360号', {
         offset: new window.BMap.Size(0, -30),

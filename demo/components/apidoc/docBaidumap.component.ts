@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { MapOptions } from '../../../src'
+import { MapOptions } from 'angular2-baidu-map'
 
 @Component({
   selector: 'doc-baidu-map',

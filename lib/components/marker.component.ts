@@ -10,12 +10,7 @@ import {
 } from '@angular/core'
 
 import { isNull } from '../helpers/object'
-import {
-  toIcon,
-  toMarkerOptions,
-  toPoint,
-  toSize
-} from '../helpers/transformer'
+import { toIcon, toMarkerOptions, toPoint, toSize } from '../helpers/transformer'
 import { nullCheck } from '../helpers/validate'
 import { MapService } from '../providers/mapService'
 import { BMapInstance } from '../types/Map'
@@ -40,11 +35,8 @@ export class MarkerComponent implements OnInit, OnChanges, OnDestroy {
     nullCheck(this.point, 'point is required for <marker>')
 
     this._service
-      .addOverlay((map: BMapInstance) => {
-        return (this.marker = new window.BMap.Marker(
-          toPoint(this.point),
-          toMarkerOptions(this.options)
-        ))
+      .addOverlay(() => {
+        return (this.marker = new window.BMap.Marker(toPoint(this.point), toMarkerOptions(this.options)))
       })
       .then(({ map }) => {
         this.loaded.emit(this.marker)
@@ -52,9 +44,7 @@ export class MarkerComponent implements OnInit, OnChanges, OnDestroy {
       })
       .then(() => {
         // workaround: it's weird that postion is set while constructing phase will make click event not working
-        this.marker.setPosition(
-          new window.BMap.Point(this.point.lng, this.point.lat)
-        )
+        this.marker.setPosition(new window.BMap.Point(this.point.lng, this.point.lat))
       })
   }
 
@@ -79,27 +69,19 @@ export class MarkerComponent implements OnInit, OnChanges, OnDestroy {
       this.marker.setOffset(toSize(options.offset))
     }
     if (!isNull(options.icon)) {
-      this.marker.setIcon(
-        toIcon(options.icon.imageUrl, options.icon.size, options.icon)
-      )
+      this.marker.setIcon(toIcon(options.icon.imageUrl, options.icon.size, options.icon))
     }
     if (!isNull(options.enableMassClear)) {
-      this.marker[
-        (options.enableMassClear ? 'enable' : 'disable') + 'MassClear'
-      ]()
+      this.marker[(options.enableMassClear ? 'enable' : 'disable') + 'MassClear']()
     }
     if (!isNull(options.enableDragging)) {
-      this.marker[
-        (options.enableDragging ? 'enable' : 'disable') + 'Dragging'
-      ]()
+      this.marker[(options.enableDragging ? 'enable' : 'disable') + 'Dragging']()
     }
     if (!isNull(options.rotation)) {
       this.marker.setRotation(options.rotation)
     }
     if (!isNull(options.shadow)) {
-      this.marker.setShadow(
-        toIcon(options.shadow.imageUrl, options.shadow.size, options.shadow)
-      )
+      this.marker.setShadow(toIcon(options.shadow.imageUrl, options.shadow.size, options.shadow))
     }
     if (!isNull(options.title)) {
       this.marker.setTitle(options.title)

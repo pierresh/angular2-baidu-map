@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 
-import { BaiduMapModule } from '../../../src'
+import { BaiduMapModule } from 'angular2-baidu-map'
 
 import { HomeRouteModule } from './route.module'
 

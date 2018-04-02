@@ -9,7 +9,7 @@ import {
   NavigationControlType,
   OverviewMapControlOptions,
   ScaleControlOptions
-} from '../../../src'
+} from 'angular2-baidu-map'
 
 @Component({
   selector: 'doc-control',

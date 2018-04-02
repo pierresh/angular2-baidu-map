@@ -1,61 +1,36 @@
 {
   "name": "angular2-baidu-map",
-  "version": "4.1.2",
-  "description": "Angular2 component for Baidu map",
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.ts",
-  "scripts": {
-    "start": "ng serve  --host=0.0.0.0 --aot",
-    "lint": "ng lint",
-    "build": "ng build --prod -bh /angular2-baidu-map/ -d /angular2-baidu-map/ -vc",
-    "deployDemo": "npm run build && git checkout gh-pages && rm -rf *.* assets && mv demodist/* .",
-    "dist": "rm -rf dist && ngc -p tsconfig.json",
-    "packager": "rm -rf dist && ng-packagr -p ./src/package.json"
-  },
-  "files": [
-    "dist/src/"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leftstick/angular2-baidu-map.git"
-  },
-  "keywords": [
-    "angular2",
-    "baidu",
-    "map"
-  ],
-  "author": "Howard.Zuo",
+  "version": "4.2.0",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/leftstick/angular2-baidu-map/issues"
+  "scripts": {
+    "start": "ng serve",
+    "dist": "ng-packagr -p lib/package.json",
+    "build": "rm -rf demodist && ng build --prod -bh /angular2-baidu-map/ -d /angular2-baidu-map/ -vc",
+    "deployDemo": "npm run build && git checkout gh-pages && rm -rf *.* assets && mv demodist/* .",
+    "lint": "ng lint"
   },
-  "homepage": "https://github.com/leftstick/angular2-baidu-map#readme",
-  "peerDependencies": {
-    "@angular/core": "^5.0.1"
-  },
-  "devDependencies": {
-    "@angular/cli": "^1.5.0",
+  "dependencies": {
     "@angular/common": "^5.0.1",
     "@angular/compiler": "^5.0.1",
-    "@angular/compiler-cli": "^5.0.1",
     "@angular/core": "^5.0.1",
     "@angular/platform-browser": "^5.0.1",
     "@angular/platform-browser-dynamic": "^5.0.1",
     "@angular/router": "^5.0.1",
-    "@types/highlight.js": "^9.12.1",
-    "@types/node": "^8.0.52",
-    "core-js": "^2.5.1",
-    "eslint-plugin-prettier": "^2.3.1",
-    "highlight.js": "^9.12.0",
-    "ng-packagr": "^2.1.0",
-    "prettier": "^1.8.2",
-    "rxjs": "^5.5.2",
-    "tslint": "^5.8.0",
-    "tslint-config-prettier": "^1.6.0",
-    "tslint-loader": "^3.5.3",
-    "tslint-plugin-prettier": "^1.3.0",
-    "typescript": "~2.4.2",
-    "zone.js": "^0.8.18"
+    "core-js": "^2.4.1",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "@angular/cli": "~1.7.3",
+    "@angular/compiler-cli": "^5.0.1",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
+    "highlight.js": "^9.12.0",
+    "ng-packagr": "^2.4.1",
+    "prettier": "^1.11.1",
+    "tslint": "~5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-plugin-prettier": "^1.3.0",
+    "typescript": "~2.5.3"
+  }
 }

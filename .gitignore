@@ -6,6 +6,6 @@ npm-debug.log
 .DS_Store
 
 #build
-out-tsc/
-demodist
 dist
+dist.tgz
+demodist

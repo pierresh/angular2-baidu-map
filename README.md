@@ -1,99 +1,27 @@
-angular2-baidu-map
-=====================
+# Angular2BaiduMap
 
-[![NPM version][npm-image]][npm-url]
-![][david-url]
-![][dt-url]
-![][license-url]
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
-Baidu-Map module for Angular5
+## Development server
 
-Read full documentation here: [documentation](https://leftstick.github.io/angular2-baidu-map/)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Read code example here: [example](https://github.com/leftstick/angular5-baidu-map-example)
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
->Be aware that it is a totally rewrite version, therefore, backward compatibility is not considered
+## Build
 
->If you are using the previous version `3.x`, [read it here](https://github.com/leftstick/angular2-baidu-map/tree/3.x)
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Getting started ##
+## Running unit tests
 
-```bash
-npm install angular2-baidu-map
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Usage ##
+## Running end-to-end tests
 
-**app.module.ts**
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+## Further help
 
-import { AppComponent } from './app.component';
-
-import { BaiduMapModule } from 'angular2-baidu-map';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    BaiduMapModule.forRoot({ak: 'your ak'})
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
-**app.component.ts**
-
-```typescript
-import { Component } from '@angular/core';
-
-import { MapOptions } from 'angular2-baidu-map';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: []
-})
-export class AppComponent {
-
-  options: MapOptions;
-
-  constructor() {
-    this.options = {
-      centerAndZoom: {
-        lat: 39.920116,
-        lng: 116.403703,
-        zoom: 16
-      },
-      enableKeyboard: true
-    };
-  }
-}
-```
-
-**app.component.html**
-
-```html
-<baidu-map [options]="options" style="display: block; width: 550px; height: 350px;"></baidu-map>
-```
-
-For more information, see [documentation](http://leftstick.github.io/angular2-baidu-map/)
-
-
-## LICENSE ##
-
-[GPL License](https://raw.githubusercontent.com/leftstick/angular2-baidu-map/master/LICENSE)
-
-
-[npm-url]: https://npmjs.org/package/angular2-baidu-map
-[npm-image]: https://img.shields.io/npm/v/angular2-baidu-map.svg
-[david-url]: https://david-dm.org/leftstick/angular2-baidu-map.png
-[dt-url]:https://img.shields.io/npm/dt/angular2-baidu-map.svg
-[license-url]:https://img.shields.io/npm/l/angular2-baidu-map.svg
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
