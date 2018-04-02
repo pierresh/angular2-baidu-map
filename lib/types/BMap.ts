@@ -11,12 +11,14 @@ import { BInfoWindowConstructor } from './InfoWindow'
 import { BLabelConstructor } from './Label'
 import { BMapConstructor } from './Map'
 import { BMarkerConstructor } from './Marker'
+import { BPolylineConstructor } from './Polyline'
 import { BPointConstructor } from './Point'
 import { BSizeConstructor } from './Size'
 
 export interface BMap {
   Map: BMapConstructor
   Marker: BMarkerConstructor
+  Polyline: BPolylineConstructor
   Point: BPointConstructor
   Size: BSizeConstructor
   Icon: BIconConstructor

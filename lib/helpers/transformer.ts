@@ -24,6 +24,15 @@ export function toPoint(opts: Point): BPointConstructor {
   return new window.BMap.Point(opts.lng, opts.lat)
 }
 
+export function toPoints(opts: Array<Point>): Array<BPointConstructor> {
+  if (!opts) {
+    return []
+  }
+  return opts.map(p => {
+    return new window.BMap.Point(p.lng, p.lat)
+  })
+}
+
 export function toSize(opts: Size): BSizeConstructor {
   if (!opts) {
     return new window.BMap.Size()
@@ -31,11 +40,7 @@ export function toSize(opts: Size): BSizeConstructor {
   return new window.BMap.Size(opts.width, opts.height)
 }
 
-export function toIcon(
-  url: string,
-  size: Size,
-  options: IconOptions
-): BIconConstructor {
+export function toIcon(url: string, size: Size, options: IconOptions): BIconConstructor {
   if (!size && !options) {
     return new window.BMap.Icon(url)
   }
@@ -87,19 +92,13 @@ export function toMarkerOptions(options: MarkerOptions): BMarkerOptions {
     opts.title = options.title
   }
   if (!isNull(options.shadow)) {
-    opts.shadow = toIcon(
-      options.shadow.imageUrl,
-      options.shadow.size,
-      options.shadow
-    )
+    opts.shadow = toIcon(options.shadow.imageUrl, options.shadow.size, options.shadow)
   }
 
   return opts
 }
 
-export function toNavigationControlOptions(
-  options: NavigationControlOptions
-): BNavigationControlOptions {
+export function toNavigationControlOptions(options: NavigationControlOptions): BNavigationControlOptions {
   const opts: BNavigationControlOptions = {}
 
   if (!options) {
@@ -125,9 +124,7 @@ export function toNavigationControlOptions(
   return opts
 }
 
-export function toOverviewMapControlOptions(
-  options: OverviewMapControlOptions
-): BOverviewMapControlOptions {
+export function toOverviewMapControlOptions(options: OverviewMapControlOptions): BOverviewMapControlOptions {
   const opts: BOverviewMapControlOptions = {}
 
   if (!options) {
@@ -149,9 +146,7 @@ export function toOverviewMapControlOptions(
   return opts
 }
 
-export function toScaleControlOptions(
-  options: ScaleControlOptions
-): BScaleControlOptions {
+export function toScaleControlOptions(options: ScaleControlOptions): BScaleControlOptions {
   const opts: BScaleControlOptions = {}
 
   if (!options) {
@@ -167,9 +162,7 @@ export function toScaleControlOptions(
   return opts
 }
 
-export function toMapTypeControlOptions(
-  options: MapTypeControlOptions
-): BMapTypeControlOptions {
+export function toMapTypeControlOptions(options: MapTypeControlOptions): BMapTypeControlOptions {
   const opts: BMapTypeControlOptions = {}
 
   if (!options) {
@@ -181,9 +174,7 @@ export function toMapTypeControlOptions(
   }
   return opts
 }
-export function toGeolocationOptions(
-  options: GeolocationControlOptions
-): BGeolocationControlOptions {
+export function toGeolocationOptions(options: GeolocationControlOptions): BGeolocationControlOptions {
   const opts: BGeolocationControlOptions = {}
 
   if (!options) {
@@ -200,11 +191,7 @@ export function toGeolocationOptions(
     opts.enableAutoLocation = options.enableAutoLocation
   }
   if (!isNull(options.locationIcon)) {
-    opts.locationIcon = toIcon(
-      options.locationIcon.imageUrl,
-      options.locationIcon.size,
-      options.locationIcon
-    )
+    opts.locationIcon = toIcon(options.locationIcon.imageUrl, options.locationIcon.size, options.locationIcon)
   }
   if (!isNull(options.showAddressBar)) {
     opts.showAddressBar = options.showAddressBar
