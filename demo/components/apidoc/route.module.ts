@@ -10,6 +10,7 @@ import { DocMapOptionsComponent } from './docMapOptions.component'
 import { DocMarkerComponent } from './docMarker.component'
 import { DocPolylineComponent } from './docPolyline.component'
 import { DocCircleComponent } from './docCircle.component'
+import { DocPolygonComponent } from './docPolygon.component'
 import { DocMarkerOptionsComponent } from './docMarkerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         component: DocCircleComponent,
         path: 'circle'
+      },
+      {
+        component: DocPolygonComponent,
+        path: 'polygon'
       },
       {
         component: DocControlComponent,

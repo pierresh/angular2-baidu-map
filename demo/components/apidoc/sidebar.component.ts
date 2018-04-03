@@ -42,6 +42,7 @@ import { Component, Input } from '@angular/core'
         <div class="api-nav-item" [class.active]="api === 'marker'"><a href="#/apidoc/marker">marker</a></div>
         <div class="api-nav-item" [class.active]="api === 'polyline'"><a href="#/apidoc/polyline">polyline</a></div>
         <div class="api-nav-item" [class.active]="api === 'circle'"><a href="#/apidoc/circle">circle</a></div>
+        <div class="api-nav-item" [class.active]="api === 'polygon'"><a href="#/apidoc/polygon">polygon</a></div>
         <div class="api-nav-item" [class.active]="api === 'control'"><a href="#/apidoc/control">control</a></div>
         <div class="api-nav-header">Models</div>
         <div class="api-nav-item" [class.active]="api === 'map-options'"><a href="#/apidoc/map-options">MapOptions</a></div>
