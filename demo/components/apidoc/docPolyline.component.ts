@@ -39,7 +39,7 @@ import { PolylineOptions, Point, MapOptions, BPolyline } from 'angular2-baidu-ma
         <td>options</td>
         <td><span class="label">expression</span></td>
         <td>
-        Literal for constructing polyline. See <a href="#/apidoc/polyline-options">PolylineOptions</a>
+        Literal for constructing polyline. See <a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a3b12">PolylineOptions</a>
         </td>
       </tr>
       <tr>
