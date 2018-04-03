@@ -11,13 +11,12 @@ import {
 } from '@angular/core'
 
 import { MapService } from '../providers/mapService'
-import { ScriptLoader } from '../providers/scriptLoader'
 import { BMapInstance, MapOptions } from '../types/Map'
 
 import { nullCheck } from '../helpers/validate'
 
 @Component({
-  providers: [MapService, ScriptLoader],
+  providers: [MapService],
   selector: 'baidu-map',
   styles: [
     `
@@ -69,10 +68,7 @@ export class MapComponent implements OnInit, OnChanges {
 
   public ngOnInit() {
     nullCheck(this.options, 'options is required for <baidu-map>')
-    nullCheck(
-      this.options.centerAndZoom,
-      'options.centerAndZoom is required for <baidu-map>'
-    )
+    nullCheck(this.options.centerAndZoom, 'options.centerAndZoom is required for <baidu-map>')
 
     this._service
       .createMap(this.mapInstance.nativeElement, this.options)

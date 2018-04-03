@@ -15,9 +15,13 @@ import { DocIconComponent } from './docIcon.component'
 import { DocMapOptionsComponent } from './docMapOptions.component'
 import { DocMarkerComponent } from './docMarker.component'
 import { DocMarkerOptionsComponent } from './docMarkerOptions.component'
+import { DocHeatmapOptionsComponent } from './docHeatmapOptions.component'
+import { DocHeatmapDataComponent } from './docHeatmapData.component'
+import { DocHeatmapPointComponent } from './docHeatmapPoint.component'
 import { DocPolylineComponent } from './docPolyline.component'
 import { DocCircleComponent } from './docCircle.component'
 import { DocPolygonComponent } from './docPolygon.component'
+import { DocHeatmapComponent } from './docHeatmap.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocPointComponent } from './docPoint.component'
@@ -36,6 +40,9 @@ import { SidebarComponent } from './sidebar.component'
     DocPointComponent,
     DocMapOptionsComponent,
     DocMarkerOptionsComponent,
+    DocHeatmapOptionsComponent,
+    DocHeatmapDataComponent,
+    DocHeatmapPointComponent,
     DocNavigationControlOptionsComponent,
     DocNavigationControlTypeComponent,
     DocSizeComponent,
@@ -43,6 +50,7 @@ import { SidebarComponent } from './sidebar.component'
     DocPolylineComponent,
     DocCircleComponent,
     DocPolygonComponent,
+    DocHeatmapComponent,
     DocControlComponent
   ],
   exports: [RouterModule],

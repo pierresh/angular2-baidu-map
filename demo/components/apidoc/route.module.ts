@@ -11,7 +11,11 @@ import { DocMarkerComponent } from './docMarker.component'
 import { DocPolylineComponent } from './docPolyline.component'
 import { DocCircleComponent } from './docCircle.component'
 import { DocPolygonComponent } from './docPolygon.component'
+import { DocHeatmapComponent } from './docHeatmap.component'
 import { DocMarkerOptionsComponent } from './docMarkerOptions.component'
+import { DocHeatmapOptionsComponent } from './docHeatmapOptions.component'
+import { DocHeatmapDataComponent } from './docHeatmapData.component'
+import { DocHeatmapPointComponent } from './docHeatmapPoint.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocPointComponent } from './docPoint.component'
@@ -47,6 +51,10 @@ const routes: Routes = [
         path: 'polygon'
       },
       {
+        component: DocHeatmapComponent,
+        path: 'heatmap'
+      },
+      {
         component: DocControlComponent,
         path: 'control'
       },
@@ -63,6 +71,27 @@ const routes: Routes = [
           name: 'MarkerOptions'
         },
         path: 'marker-options'
+      },
+      {
+        component: DocHeatmapOptionsComponent,
+        data: {
+          name: 'HeatmapOptions'
+        },
+        path: 'heatmap-options'
+      },
+      {
+        component: DocHeatmapDataComponent,
+        data: {
+          name: 'HeatmapData'
+        },
+        path: 'heatmap-data'
+      },
+      {
+        component: DocHeatmapPointComponent,
+        data: {
+          name: 'HeatmapPoint'
+        },
+        path: 'heatmap-point'
       },
       {
         component: DocNavigationControlOptionsComponent,

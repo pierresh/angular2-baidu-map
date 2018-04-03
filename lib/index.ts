@@ -6,9 +6,12 @@ import { MarkerComponent } from './components/marker.component'
 import { PolylineComponent } from './components/polyline.component'
 import { CircleComponent } from './components/circle.component'
 import { PolygonComponent } from './components/polygon.component'
-import { LOADING_STATE, ScriptLoaderConfig } from './providers/scriptLoader'
+import { HeatmapComponent } from './components/heatmap.component'
+import { LOADING_STATE, ScriptLoader, ScriptLoaderConfig } from './providers/scriptLoader'
 
 import { BMap } from './types/BMap'
+import { BMapLib } from './types/BMapLib'
+import { HeatmapLibLoader } from './providers/heatmapLibLoader'
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { BMap } from './types/BMap'
     ControlComponent,
     PolylineComponent,
     CircleComponent,
-    PolygonComponent
+    PolygonComponent,
+    HeatmapComponent
   ],
   exports: [
     MapComponent,
@@ -25,14 +29,15 @@ import { BMap } from './types/BMap'
     ControlComponent,
     PolylineComponent,
     CircleComponent,
-    PolygonComponent
+    PolygonComponent,
+    HeatmapComponent
   ]
 })
 export class BaiduMapModule {
   public static forRoot(_config?: ScriptLoaderConfig): ModuleWithProviders {
     return {
       ngModule: BaiduMapModule,
-      providers: [{ provide: ScriptLoaderConfig, useValue: _config }]
+      providers: [{ provide: ScriptLoaderConfig, useValue: _config }, ScriptLoader, HeatmapLibLoader]
     }
   }
 }
@@ -43,6 +48,7 @@ export { BMarker, MarkerOptions } from './types/Marker'
 export { BPolyline, PolylineOptions } from './types/Polyline'
 export { BCircle, CircleOptions } from './types/Circle'
 export { BPolygon, PolygonOptions } from './types/Polygon'
+export { BHeatmap, HeatmapOptions, HeatmapData } from './types/Heatmap'
 export {
   ControlType,
   ControlAnchor,
@@ -59,8 +65,11 @@ export { BInfoWindowConstructor, BInfoWindowOptions } from './types/InfoWindow'
 declare global {
   interface Window {
     _scriptLoadState: LOADING_STATE
+    _heatmapLibLoadState: LOADING_STATE
     BMap: BMap
+    BMapLib: BMapLib
     _loadingCallbacks: Array<() => void>
+    _heatmapLoadingCallbacks: Array<() => void>
     baidumapinit: () => void
   }
 }
