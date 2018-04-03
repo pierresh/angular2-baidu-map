@@ -4,9 +4,6 @@
   "license": "GPL-3.0",
   "description": "Angular2 component for Baidu map",
   "author": "Howard.Zuo",
-  "scripts": {
-    "prepublishOnly": "cp ../README.md ."
-  },
   "ngPackage": {
     "lib": {
       "entryFile": "./public_api.ts"
