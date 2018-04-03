@@ -4,7 +4,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "ng serve",
-    "dist": "rm -rf dist dist.tgz && ng-packagr -p lib/package.json",
+    "dist": "rm -rf dist dist.tgz && ng-packagr -p lib/package.json && cp README.md ./dist",
     "build": "rm -rf demodist && ng build --prod -bh /angular2-baidu-map/ -d /angular2-baidu-map/ -vc",
     "deployDemo": "npm run build && git checkout gh-pages && rm -rf *.* assets && mv demodist/* .",
     "lint": "ng lint"
