@@ -1,7 +1,6 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../out-tsc/demodist",
     "module": "es2015"
   },
   "exclude": ["test.ts", "**/*.spec.ts"]
