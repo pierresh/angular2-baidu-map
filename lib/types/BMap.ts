@@ -14,11 +14,13 @@ import { BMarkerConstructor } from './Marker'
 import { BPolylineConstructor } from './Polyline'
 import { BPointConstructor } from './Point'
 import { BSizeConstructor } from './Size'
+import { BCircleConstructor } from './Circle'
 
 export interface BMap {
   Map: BMapConstructor
   Marker: BMarkerConstructor
   Polyline: BPolylineConstructor
+  Circle: BCircleConstructor
   Point: BPointConstructor
   Size: BSizeConstructor
   Icon: BIconConstructor

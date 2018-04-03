@@ -4,13 +4,14 @@ import { ControlComponent } from './components/control.component'
 import { MapComponent } from './components/map.component'
 import { MarkerComponent } from './components/marker.component'
 import { PolylineComponent } from './components/polyline.component'
+import { CircleComponent } from './components/circle.component'
 import { LOADING_STATE, ScriptLoaderConfig } from './providers/scriptLoader'
 
 import { BMap } from './types/BMap'
 
 @NgModule({
-  declarations: [MapComponent, MarkerComponent, ControlComponent, PolylineComponent],
-  exports: [MapComponent, MarkerComponent, ControlComponent, PolylineComponent]
+  declarations: [MapComponent, MarkerComponent, ControlComponent, PolylineComponent, CircleComponent],
+  exports: [MapComponent, MarkerComponent, ControlComponent, PolylineComponent, CircleComponent]
 })
 export class BaiduMapModule {
   public static forRoot(_config?: ScriptLoaderConfig): ModuleWithProviders {
@@ -25,6 +26,7 @@ export { BMapInstance, MapOptions } from './types/Map'
 export { Point } from './types/Point'
 export { BMarker, MarkerOptions } from './types/Marker'
 export { BPolyline, PolylineOptions } from './types/Polyline'
+export { BCircle, CircleOptions } from './types/Circle'
 export {
   ControlType,
   ControlAnchor,

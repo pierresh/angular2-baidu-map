@@ -9,6 +9,7 @@ import { DocIconComponent } from './docIcon.component'
 import { DocMapOptionsComponent } from './docMapOptions.component'
 import { DocMarkerComponent } from './docMarker.component'
 import { DocPolylineComponent } from './docPolyline.component'
+import { DocCircleComponent } from './docCircle.component'
 import { DocMarkerOptionsComponent } from './docMarkerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         component: DocPolylineComponent,
         path: 'polyline'
+      },
+      {
+        component: DocCircleComponent,
+        path: 'circle'
       },
       {
         component: DocControlComponent,

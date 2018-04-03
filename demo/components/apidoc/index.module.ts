@@ -16,6 +16,7 @@ import { DocMapOptionsComponent } from './docMapOptions.component'
 import { DocMarkerComponent } from './docMarker.component'
 import { DocMarkerOptionsComponent } from './docMarkerOptions.component'
 import { DocPolylineComponent } from './docPolyline.component'
+import { DocCircleComponent } from './docCircle.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocPointComponent } from './docPoint.component'
@@ -39,6 +40,7 @@ import { SidebarComponent } from './sidebar.component'
     DocSizeComponent,
     DocMarkerComponent,
     DocPolylineComponent,
+    DocCircleComponent,
     DocControlComponent
   ],
   exports: [RouterModule],
