@@ -17,11 +17,14 @@ import { DocHeatmapOptionsComponent } from './docHeatmapOptions.component'
 import { DocHeatmapDataComponent } from './docHeatmapData.component'
 import { DocHeatmapPointComponent } from './docHeatmapPoint.component'
 import { DocTileLayerComponent } from './docTileLayer.component'
+import { DocTrafficLayerComponent } from './docTrafficLayer.component'
 import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
+import { DocTrafficLayerOptionsComponent } from './docTrafficLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocPointComponent } from './docPoint.component'
 import { DocSizeComponent } from './docSize.component'
+import { DocPredictDateComponent } from './docPredictDate.component'
 import { ApidocComponent } from './index.component'
 
 const routes: Routes = [
@@ -61,6 +64,10 @@ const routes: Routes = [
         path: 'tilelayer'
       },
       {
+        component: DocTrafficLayerComponent,
+        path: 'trafficlayer'
+      },
+      {
         component: DocControlComponent,
         path: 'control'
       },
@@ -93,6 +100,13 @@ const routes: Routes = [
         path: 'tilelayer-options'
       },
       {
+        component: DocTrafficLayerOptionsComponent,
+        data: {
+          name: 'TrafficLayerOptions'
+        },
+        path: 'trafficlayer-options'
+      },
+      {
         component: DocHeatmapDataComponent,
         data: {
           name: 'HeatmapData'
@@ -119,6 +133,13 @@ const routes: Routes = [
           name: 'CenterAndZoom'
         },
         path: 'center-and-zoom'
+      },
+      {
+        component: DocPredictDateComponent,
+        data: {
+          name: 'PredictDate'
+        },
+        path: 'predictdate'
       },
       {
         component: DocPointComponent,

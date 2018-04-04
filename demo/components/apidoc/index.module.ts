@@ -23,9 +23,12 @@ import { DocCircleComponent } from './docCircle.component'
 import { DocPolygonComponent } from './docPolygon.component'
 import { DocHeatmapComponent } from './docHeatmap.component'
 import { DocTileLayerComponent } from './docTileLayer.component'
+import { DocTrafficLayerComponent } from './docTrafficLayer.component'
 import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
+import { DocTrafficLayerOptionsComponent } from './docTrafficLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
+import { DocPredictDateComponent } from './docPredictDate.component'
 import { DocPointComponent } from './docPoint.component'
 import { DocSizeComponent } from './docSize.component'
 import { ApidocComponent } from './index.component'
@@ -54,8 +57,11 @@ import { SidebarComponent } from './sidebar.component'
     DocPolygonComponent,
     DocHeatmapComponent,
     DocTileLayerComponent,
+    DocTrafficLayerComponent,
     DocTileLayerOptionsComponent,
-    DocControlComponent
+    DocTrafficLayerOptionsComponent,
+    DocControlComponent,
+    DocPredictDateComponent
   ],
   exports: [RouterModule],
   imports: [

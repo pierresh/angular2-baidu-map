@@ -8,6 +8,7 @@ import { CircleComponent } from './components/circle.component'
 import { PolygonComponent } from './components/polygon.component'
 import { HeatmapComponent } from './components/heatmap.component'
 import { TileLayderComponent } from './components/tilelayer.component'
+import { TrafficLayderComponent } from './components/trafficlayer.component'
 import { LOADING_STATE, ScriptLoader, ScriptLoaderConfig } from './providers/scriptLoader'
 
 import { BMap } from './types/BMap'
@@ -23,7 +24,8 @@ import { HeatmapLibLoader } from './providers/heatmapLibLoader'
     CircleComponent,
     PolygonComponent,
     HeatmapComponent,
-    TileLayderComponent
+    TileLayderComponent,
+    TrafficLayderComponent
   ],
   exports: [
     MapComponent,
@@ -33,7 +35,8 @@ import { HeatmapLibLoader } from './providers/heatmapLibLoader'
     CircleComponent,
     PolygonComponent,
     HeatmapComponent,
-    TileLayderComponent
+    TileLayderComponent,
+    TrafficLayderComponent
   ]
 })
 export class BaiduMapModule {
@@ -53,6 +56,7 @@ export { BCircle, CircleOptions } from './types/Circle'
 export { BPolygon, PolygonOptions } from './types/Polygon'
 export { BHeatmap, HeatmapOptions, HeatmapData } from './types/Heatmap'
 export { BTileLayer, TileLayerOptions, getTilesUrlFunc } from './types/TileLayer'
+export { BTrafficLayer, TrafficLayerOptions, PredictDate } from './types/TrafficLayer'
 export {
   ControlType,
   ControlAnchor,
