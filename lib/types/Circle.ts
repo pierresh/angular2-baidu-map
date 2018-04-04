@@ -1,12 +1,12 @@
 import { Overlay } from './Overlay'
-import { BPointConstructor } from './Point'
+import { BPoint } from './Point'
 
 export interface BCircleConstructor {
-  new (center: BPointConstructor, radius: number, options?: CircleOptions): BCircle
+  new (center: BPoint, radius: number, options?: CircleOptions): BCircle
 }
 
 export interface BCircle extends Overlay {
-  setCenter(center: BPointConstructor): void
+  setCenter(center: BPoint): void
   setRadius(radius: number): void
   setStrokeColor(strokeColor: string): void
   setFillColor(fillColor: string): void

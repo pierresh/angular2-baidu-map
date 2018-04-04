@@ -16,6 +16,8 @@ import { DocMarkerOptionsComponent } from './docMarkerOptions.component'
 import { DocHeatmapOptionsComponent } from './docHeatmapOptions.component'
 import { DocHeatmapDataComponent } from './docHeatmapData.component'
 import { DocHeatmapPointComponent } from './docHeatmapPoint.component'
+import { DocTileLayerComponent } from './docTileLayer.component'
+import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocPointComponent } from './docPoint.component'
@@ -55,6 +57,10 @@ const routes: Routes = [
         path: 'heatmap'
       },
       {
+        component: DocTileLayerComponent,
+        path: 'tilelayer'
+      },
+      {
         component: DocControlComponent,
         path: 'control'
       },
@@ -78,6 +84,13 @@ const routes: Routes = [
           name: 'HeatmapOptions'
         },
         path: 'heatmap-options'
+      },
+      {
+        component: DocTileLayerOptionsComponent,
+        data: {
+          name: 'TileLayerOptions'
+        },
+        path: 'tilelayer-options'
       },
       {
         component: DocHeatmapDataComponent,

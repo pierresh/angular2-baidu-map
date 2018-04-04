@@ -1,5 +1,9 @@
 export interface BPointConstructor {
-  new (lng?: number, lat?: number): any
+  new (lng?: number, lat?: number): BPoint
+}
+
+export interface BPoint {
+  equals(other: BPoint): boolean
 }
 
 export interface Point {

@@ -22,6 +22,8 @@ import { DocPolylineComponent } from './docPolyline.component'
 import { DocCircleComponent } from './docCircle.component'
 import { DocPolygonComponent } from './docPolygon.component'
 import { DocHeatmapComponent } from './docHeatmap.component'
+import { DocTileLayerComponent } from './docTileLayer.component'
+import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocPointComponent } from './docPoint.component'
@@ -51,6 +53,8 @@ import { SidebarComponent } from './sidebar.component'
     DocCircleComponent,
     DocPolygonComponent,
     DocHeatmapComponent,
+    DocTileLayerComponent,
+    DocTileLayerOptionsComponent,
     DocControlComponent
   ],
   exports: [RouterModule],

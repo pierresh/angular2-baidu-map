@@ -1,5 +1,5 @@
-import { BIconConstructor, Icon } from './Icon'
-import { BSizeConstructor, Size } from './Size'
+import { BIcon, Icon } from './Icon'
+import { BSize, Size } from './Size'
 
 export interface BControlConstructor {
   new (opts: any): BControl
@@ -50,7 +50,7 @@ export interface ControlOptions {
 
 export interface BControlOptions {
   anchor?: ControlAnchor
-  offset?: BSizeConstructor
+  offset?: BSize
 }
 
 export interface NavigationControlOptions extends ControlOptions {
@@ -71,7 +71,7 @@ export interface OverviewMapControlOptions extends ControlOptions {
 }
 
 export interface BOverviewMapControlOptions extends BControlOptions {
-  size?: BSizeConstructor
+  size?: BSize
   isOpen?: boolean
 }
 
@@ -96,7 +96,7 @@ export interface GeolocationControlOptions extends ControlOptions {
 export interface BGeolocationControlOptions extends BControlOptions {
   showAddressBar?: boolean
   enableAutoLocation?: boolean
-  locationIcon?: BIconConstructor
+  locationIcon?: BIcon
 }
 
 export enum ControlAnchor {
@@ -119,10 +119,4 @@ export enum MapTypeControlType {
   BMAP_MAPTYPE_CONTROL_MAP = 2
 }
 
-export type ControlType =
-  | 'navigation'
-  | 'overviewmap'
-  | 'scale'
-  | 'maptype'
-  | 'geolocation'
-  | 'panorama'
+export type ControlType = 'navigation' | 'overviewmap' | 'scale' | 'maptype' | 'geolocation' | 'panorama'

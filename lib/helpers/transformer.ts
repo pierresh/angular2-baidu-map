@@ -10,21 +10,21 @@ import {
   OverviewMapControlOptions,
   ScaleControlOptions
 } from '../types/Control'
-import { BIconConstructor, IconOptions } from '../types/Icon'
+import { BIcon, IconOptions } from '../types/Icon'
 import { BMarkerOptions, MarkerOptions } from '../types/Marker'
-import { BPointConstructor, Point } from '../types/Point'
-import { BSizeConstructor, Size } from '../types/Size'
+import { BPoint, Point } from '../types/Point'
+import { BSize, Size } from '../types/Size'
 
 import { isNull } from './object'
 
-export function toPoint(opts: Point): BPointConstructor {
+export function toPoint(opts: Point): BPoint {
   if (!opts) {
     return new window.BMap.Point()
   }
   return new window.BMap.Point(opts.lng, opts.lat)
 }
 
-export function toPoints(opts: Array<Point>): Array<BPointConstructor> {
+export function toPoints(opts: Array<Point>): Array<BPoint> {
   if (!opts) {
     return []
   }
@@ -33,14 +33,14 @@ export function toPoints(opts: Array<Point>): Array<BPointConstructor> {
   })
 }
 
-export function toSize(opts: Size): BSizeConstructor {
+export function toSize(opts: Size): BSize {
   if (!opts) {
     return new window.BMap.Size()
   }
   return new window.BMap.Size(opts.width, opts.height)
 }
 
-export function toIcon(url: string, size: Size, options: IconOptions): BIconConstructor {
+export function toIcon(url: string, size: Size, options: IconOptions): BIcon {
   if (!size && !options) {
     return new window.BMap.Icon(url)
   }

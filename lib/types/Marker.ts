@@ -1,19 +1,19 @@
-import { BIconConstructor, Icon } from './Icon'
+import { BIcon, Icon } from './Icon'
 import { BLabel } from './Label'
 import { Overlay } from './Overlay'
-import { BPointConstructor } from './Point'
-import { BSizeConstructor, Size } from './Size'
+import { BPoint } from './Point'
+import { BSize, Size } from './Size'
 
 export interface BMarkerConstructor {
-  new (point: BPointConstructor, options?: BMarkerOptions): BMarker
+  new (point: BPoint, options?: BMarkerOptions): BMarker
 }
 
 export interface BMarker extends Overlay {
   addEventListener(event: string, handler: (e: any) => void): void
   removeEventListener(event: string, handler: () => void): void
-  setPosition(position: BPointConstructor): void
-  setOffset(offset: BSizeConstructor): void
-  setIcon(icon: BIconConstructor): void
+  setPosition(position: BPoint): void
+  setOffset(offset: BSize): void
+  setIcon(icon: BIcon): void
   enableMassClear(): void
   disableMassClear(): void
 
@@ -21,7 +21,7 @@ export interface BMarker extends Overlay {
   disableDragging(): void
 
   setRotation(rotation: number): void
-  setShadow(icon: BIconConstructor): void
+  setShadow(icon: BIcon): void
   setTitle(title: string): void
 
   setLabel(label: BLabel): void
@@ -42,14 +42,14 @@ export interface MarkerOptions {
 }
 
 export interface BMarkerOptions {
-  offset?: BSizeConstructor
-  icon?: BIconConstructor
+  offset?: BSize
+  icon?: BIcon
   enableMassClear?: boolean
   enableDragging?: boolean
   enableClicking?: boolean
   raiseOnDrag?: boolean
   draggingCursor?: string
   rotation?: number
-  shadow?: BIconConstructor
+  shadow?: BIcon
   title?: string
 }

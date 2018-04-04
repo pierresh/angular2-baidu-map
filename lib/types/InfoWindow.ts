@@ -1,4 +1,4 @@
-import { BSizeConstructor } from './Size'
+import { BSize } from './Size'
 
 export interface BInfoWindowConstructor {
   new (content: string | HTMLElement, opts?: BInfoWindowOptions): any
@@ -8,7 +8,7 @@ export interface BInfoWindowOptions {
   width?: number
   height?: number
   maxWidth?: number
-  offset?: BSizeConstructor
+  offset?: BSize
   title?: string
   enableAutoPan?: boolean
   enableCloseOnClick?: boolean

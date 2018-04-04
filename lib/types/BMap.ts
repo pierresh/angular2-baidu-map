@@ -16,6 +16,7 @@ import { BPointConstructor } from './Point'
 import { BSizeConstructor } from './Size'
 import { BCircleConstructor } from './Circle'
 import { BPolygonConstructor } from './Polygon'
+import { BTileLayerConstructor } from './TileLayer'
 
 export interface BMap {
   Map: BMapConstructor
@@ -23,6 +24,7 @@ export interface BMap {
   Polyline: BPolylineConstructor
   Circle: BCircleConstructor
   Polygon: BPolygonConstructor
+  TileLayer: BTileLayerConstructor
   Point: BPointConstructor
   Size: BSizeConstructor
   Icon: BIconConstructor

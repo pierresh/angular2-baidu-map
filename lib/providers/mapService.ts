@@ -4,6 +4,7 @@ import { isBoolean, isNull } from '../helpers/object'
 import { BControl } from '../types/Control'
 import { BMapInstance, MapOptions } from '../types/Map'
 import { Overlay } from '../types/Overlay'
+import { BTileLayer } from '../types/TileLayer'
 
 import { toPoint } from '../helpers/transformer'
 
@@ -94,6 +95,22 @@ export class MapService {
   public removeOverlay(overlay: Overlay): Promise<void> {
     return this._map.then((map: BMapInstance) => {
       map.removeOverlay(overlay)
+    })
+  }
+
+  public addTileLayer(
+    cb: (map: BMapInstance) => BTileLayer
+  ): Promise<{ map: BMapInstance; tilelayer: BTileLayer }> {
+    return this._map.then((map: BMapInstance) => {
+      const tilelayer = cb(map)
+      map.addTileLayer(tilelayer)
+      return { map, tilelayer }
+    })
+  }
+
+  public removeTileLayer(tilelayer: BTileLayer): Promise<void> {
+    return this._map.then((map: BMapInstance) => {
+      map.removeOverlay(tilelayer)
     })
   }
 

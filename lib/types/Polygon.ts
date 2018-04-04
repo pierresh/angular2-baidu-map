@@ -1,12 +1,12 @@
 import { Overlay } from './Overlay'
-import { BPointConstructor } from './Point'
+import { BPoint } from './Point'
 
 export interface BPolygonConstructor {
-  new (points: Array<BPointConstructor>, options?: PolygonOptions): BPolygon
+  new (points: Array<BPoint>, options?: PolygonOptions): BPolygon
 }
 
 export interface BPolygon extends Overlay {
-  setPath(points: Array<BPointConstructor>): void
+  setPath(points: Array<BPoint>): void
   setStrokeColor(strokeColor: string): void
   setFillColor(fillColor: string): void
   setStrokeOpacity(strokeOpacity: number): void

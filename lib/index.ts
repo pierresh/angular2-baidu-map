@@ -7,6 +7,7 @@ import { PolylineComponent } from './components/polyline.component'
 import { CircleComponent } from './components/circle.component'
 import { PolygonComponent } from './components/polygon.component'
 import { HeatmapComponent } from './components/heatmap.component'
+import { TileLayderComponent } from './components/tilelayer.component'
 import { LOADING_STATE, ScriptLoader, ScriptLoaderConfig } from './providers/scriptLoader'
 
 import { BMap } from './types/BMap'
@@ -21,7 +22,8 @@ import { HeatmapLibLoader } from './providers/heatmapLibLoader'
     PolylineComponent,
     CircleComponent,
     PolygonComponent,
-    HeatmapComponent
+    HeatmapComponent,
+    TileLayderComponent
   ],
   exports: [
     MapComponent,
@@ -30,7 +32,8 @@ import { HeatmapLibLoader } from './providers/heatmapLibLoader'
     PolylineComponent,
     CircleComponent,
     PolygonComponent,
-    HeatmapComponent
+    HeatmapComponent,
+    TileLayderComponent
   ]
 })
 export class BaiduMapModule {
@@ -49,6 +52,7 @@ export { BPolyline, PolylineOptions } from './types/Polyline'
 export { BCircle, CircleOptions } from './types/Circle'
 export { BPolygon, PolygonOptions } from './types/Polygon'
 export { BHeatmap, HeatmapOptions, HeatmapData } from './types/Heatmap'
+export { BTileLayer, TileLayerOptions, getTilesUrlFunc } from './types/TileLayer'
 export {
   ControlType,
   ControlAnchor,
