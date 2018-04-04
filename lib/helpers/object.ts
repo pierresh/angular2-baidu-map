@@ -14,11 +14,14 @@ export function isFunction(obj: any): obj is boolean {
   return Object.prototype.toString.call(obj) === '[object Function]'
 }
 
-export function omit(obj: object, ...keys: Array<string>) {
+export function omit<T>(obj: T, ...keys: Array<string>): T {
   const rawKeys = Object.keys(obj)
   const finalKeys = rawKeys.filter(k => !keys.includes(k))
-  return finalKeys.reduce((p, v) => {
-    p[v] = obj[v]
-    return p
-  }, {})
+  return finalKeys.reduce(
+    (p, v) => {
+      p[v] = obj[v]
+      return p
+    },
+    <T>{}
+  )
 }
