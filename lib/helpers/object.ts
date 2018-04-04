@@ -16,7 +16,7 @@ export function isFunction(obj: any): obj is boolean {
 
 export function omit<T>(obj: T, ...keys: Array<string>): T {
   const rawKeys = Object.keys(obj)
-  const finalKeys = rawKeys.filter(k => !keys.includes(k))
+  const finalKeys = rawKeys.filter(k => keys.indexOf(k) < 0)
   return finalKeys.reduce(
     (p, v) => {
       p[v] = obj[v]
