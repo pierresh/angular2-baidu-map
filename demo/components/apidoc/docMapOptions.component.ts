@@ -100,6 +100,11 @@ import { Component } from '@angular/core'
             <td><span class="label required">Object</span></td>
             <td><p class="line-text">See <a href="#/apidoc/center-and-zoom">centerAndZoom</a></p></td>
         </tr>
+        <tr>
+            <td>mapType</td>
+            <td><span class="label required">Object</span></td>
+            <td>Should be an instance of <a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a5b0">BMap.MapType</a>, or constant <a href="#/apidoc/maptypeenum">MapTypeEnum</a></td>
+        </tr>
     </tbody>
   </table>
   <blockquote>Required properties are in red</blockquote>

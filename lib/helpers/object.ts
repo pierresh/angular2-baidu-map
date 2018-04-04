@@ -9,3 +9,16 @@ export function isUndefined(obj: any) {
 export function isBoolean(obj: any): obj is boolean {
   return Object.prototype.toString.call(obj) === '[object Boolean]'
 }
+
+export function isFunction(obj: any): obj is boolean {
+  return Object.prototype.toString.call(obj) === '[object Function]'
+}
+
+export function omit(obj: object, ...keys: Array<string>) {
+  const rawKeys = Object.keys(obj)
+  const finalKeys = rawKeys.filter(k => !keys.includes(k))
+  return finalKeys.reduce((p, v) => {
+    p[v] = obj[v]
+    return p
+  }, {})
+}

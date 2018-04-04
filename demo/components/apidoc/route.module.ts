@@ -22,6 +22,7 @@ import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
 import { DocTrafficLayerOptionsComponent } from './docTrafficLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
+import { DocMapTypeEnumComponent } from './docMapTypeEnum.component'
 import { DocPointComponent } from './docPoint.component'
 import { DocSizeComponent } from './docSize.component'
 import { DocPredictDateComponent } from './docPredictDate.component'
@@ -175,6 +176,13 @@ const routes: Routes = [
           name: 'NavigationControlType'
         },
         path: 'navigation-control-type'
+      },
+      {
+        component: DocMapTypeEnumComponent,
+        data: {
+          name: 'MapTypeEnum'
+        },
+        path: 'maptypeenum'
       },
       {
         path: '**',

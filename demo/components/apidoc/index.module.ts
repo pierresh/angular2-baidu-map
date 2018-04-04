@@ -31,6 +31,7 @@ import { DocNavigationControlTypeComponent } from './docNavigationControlType.co
 import { DocPredictDateComponent } from './docPredictDate.component'
 import { DocPointComponent } from './docPoint.component'
 import { DocSizeComponent } from './docSize.component'
+import { DocMapTypeEnumComponent } from './docMapTypeEnum.component'
 import { ApidocComponent } from './index.component'
 import { SidebarComponent } from './sidebar.component'
 
@@ -61,7 +62,8 @@ import { SidebarComponent } from './sidebar.component'
     DocTileLayerOptionsComponent,
     DocTrafficLayerOptionsComponent,
     DocControlComponent,
-    DocPredictDateComponent
+    DocPredictDateComponent,
+    DocMapTypeEnumComponent
   ],
   exports: [RouterModule],
   imports: [

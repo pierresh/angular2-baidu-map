@@ -3,6 +3,8 @@ export interface BPointConstructor {
 }
 
 export interface BPoint {
+  lng: number
+  lat: number
   equals(other: BPoint): boolean
 }
 

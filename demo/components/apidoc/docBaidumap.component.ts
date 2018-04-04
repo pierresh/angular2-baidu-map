@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { MapOptions } from 'angular2-baidu-map'
+import { MapOptions, MapTypeEnum } from 'angular2-baidu-map'
 
 @Component({
   selector: 'doc-baidu-map',
@@ -70,7 +70,8 @@ import { MapOptions } from 'angular2-baidu-map'
         lng: 116.403703,
         zoom: 16
       &#125;,
-      enableKeyboard: true
+      enableKeyboard: true,
+      mapType: MapTypeEnum.BMAP_SATELLITE_MAP
     &#125;
   &#125;
 
@@ -91,7 +92,8 @@ export class DocBaidumapComponent {
         lng: 116.403703,
         zoom: 16
       },
-      enableKeyboard: true
+      enableKeyboard: true,
+      mapType: MapTypeEnum.BMAP_SATELLITE_MAP
     }
   }
 

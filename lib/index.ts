@@ -48,7 +48,7 @@ export class BaiduMapModule {
   }
 }
 
-export { BMapInstance, MapOptions } from './types/Map'
+export { BMapInstance, MapOptions, BMapType, BProjection, MapTypeEnum } from './types/Map'
 export { Point } from './types/Point'
 export { BMarker, MarkerOptions } from './types/Marker'
 export { BPolyline, PolylineOptions } from './types/Polyline'
@@ -79,5 +79,6 @@ declare global {
     _loadingCallbacks: Array<() => void>
     _heatmapLoadingCallbacks: Array<() => void>
     baidumapinit: () => void
+    BMAP_PERSPECTIVE_MAP: any
   }
 }

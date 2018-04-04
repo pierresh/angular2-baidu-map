@@ -62,6 +62,7 @@ import { Component, Input } from '@angular/core'
         <div class="api-nav-item" [class.active]="api === 'icon'"><a href="#/apidoc/icon">Icon</a></div>
         <div class="api-nav-item" [class.active]="api === 'navigation-control-options'"><a href="#/apidoc/navigation-control-options">NavigationControlOptions</a></div>
         <div class="api-nav-item" [class.active]="api === 'navigation-control-type'"><a href="#/apidoc/navigation-control-type">NavigationControlType</a></div>
+        <div class="api-nav-item" [class.active]="api === 'maptypeenum'"><a href="#/apidoc/maptypeenum">MapTypeEnum</a></div>
         <div class="api-nav-item" [class.active]="api === 'control-anchor'"><a href="#/apidoc/control-anchor">ControlAnchor</a></div>
     </div>
     `

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
 
-import { isBoolean, isNull } from '../helpers/object'
+import { isBoolean, isNull, omit } from '../helpers/object'
 import { BControl } from '../types/Control'
-import { BMapInstance, MapOptions } from '../types/Map'
+import { BMapInstance, MapOptions, isMapTypeEnum } from '../types/Map'
 import { Overlay } from '../types/Overlay'
 import { BTileLayer } from '../types/TileLayer'
 
@@ -24,7 +24,7 @@ export class MapService {
   public createMap(el: HTMLElement, mapOptions: MapOptions): Promise<BMapInstance> {
     return new Promise(resolve => {
       this._loader.load(() => {
-        const map = new window.BMap.Map(el, mapOptions)
+        const map = new window.BMap.Map(el, omit(mapOptions, 'mapType'))
         this.setOptions(mapOptions)
         this._mapResolver(map)
         resolve(map)
@@ -80,6 +80,12 @@ export class MapService {
     if (!isNull(opts.centerAndZoom)) {
       this._map.then(map => {
         map.centerAndZoom(toPoint(opts.centerAndZoom), opts.centerAndZoom.zoom)
+      })
+    }
+    if (!isNull(opts.mapType)) {
+      this._map.then(map => {
+        const realType = isMapTypeEnum(opts.mapType) ? window[opts.mapType] : opts.mapType
+        map.setMapType(realType)
       })
     }
   }
