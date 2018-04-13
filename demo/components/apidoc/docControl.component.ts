@@ -8,7 +8,8 @@ import {
   NavigationControlOptions,
   NavigationControlType,
   OverviewMapControlOptions,
-  ScaleControlOptions
+  ScaleControlOptions,
+  BNavigationControl
 } from 'angular2-baidu-map'
 
 @Component({
@@ -64,7 +65,7 @@ import {
 
   <h2 class="title">Example</h2>
   <baidu-map [options]="opts">
-      <control type="navigation" [options]="controlOpts"></control>
+      <control type="navigation" [options]="controlOpts" (loaded)="controlLoaded($event)"></control>
       <control type="overviewmap" [options]="overviewmapOpts"></control>
       <control type="scale" [options]="scaleOpts"></control>
       <control type="maptype" [options]="mapTypeOpts"></control>
@@ -73,7 +74,7 @@ import {
   <div class="snippet" highlight>
     <pre><code class="html">
     &lt;baidu-map [options]="opts"&gt;
-      &lt;control type="navigation" [options]="controlOpts"&gt;&lt;/control&gt;
+      &lt;control type="navigation" [options]="controlOpts" (loaded)="controlLoaded($event)"&gt;&lt;/control&gt;
       &lt;control type="overviewmap" [options]="overviewmapOpts"&gt;&lt;/control&gt;
       &lt;control type="scale" [options]="scaleOpts"&gt;&lt;/control&gt;
       &lt;control type="maptype" [options]="mapTypeOpts"&gt;&lt;/control&gt;
@@ -119,6 +120,10 @@ import {
       &#125;
 
     &#125;
+
+    public controlLoaded(control: BNavigationControl): void &#123;
+      console.log('control loaded', control)
+    &#125;
   
   &#125;  
   </code></pre>
@@ -159,5 +164,9 @@ export class DocControlComponent {
     this.mapTypeOpts = {
       type: MapTypeControlType.BMAP_MAPTYPE_CONTROL_HORIZONTAL
     }
+  }
+
+  controlLoaded(control: BNavigationControl): void {
+    console.log('control loaded', control.getType)
   }
 }

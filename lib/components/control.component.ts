@@ -1,4 +1,4 @@
-import { Directive, Input, OnDestroy, OnInit } from '@angular/core'
+import { Directive, EventEmitter, Input, Output, OnDestroy, OnInit } from '@angular/core'
 
 import {
   toGeolocationOptions,
@@ -18,6 +18,8 @@ export class ControlComponent implements OnInit, OnDestroy {
   @Input() private type: ControlType
   @Input() private options: { [key: string]: any }
 
+  @Output() private loaded = new EventEmitter()
+
   private control: BControl
 
   constructor(private _service: MapService) {}
@@ -25,17 +27,21 @@ export class ControlComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     nullCheck(this.type, 'type is required for <control>')
 
-    this._service.addControl(() => {
-      this.control = this.createControl(this.type, this.options)
-      return this.control
-    })
+    this._service
+      .addControl(() => {
+        this.control = this.createControl(this.type, this.options)
+        return this.control
+      })
+      .then(({ control }) => {
+        this.loaded.emit(control)
+      })
   }
 
   public ngOnDestroy() {
     this._service.removeControl(this.control)
   }
 
-  private createControl(type: ControlType, options: { [key: string]: any }): BControl | null {
+  private createControl(type: ControlType, options: { [key: string]: any }): BControl {
     if (type === 'navigation') {
       return new window.BMap.NavigationControl(toNavigationControlOptions(options))
     }

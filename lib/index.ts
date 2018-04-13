@@ -58,9 +58,17 @@ export { BHeatmap, HeatmapOptions, HeatmapData } from './types/Heatmap'
 export { BTileLayer, TileLayerOptions, getTilesUrlFunc } from './types/TileLayer'
 export { BTrafficLayer, TrafficLayerOptions, PredictDate } from './types/TrafficLayer'
 export {
+  BControl,
+  BNavigationControl,
+  BOverviewMapControl,
+  BScaleControl,
+  BMapTypeControl,
+  BGeolocationControl,
+  BPanoramaControlControl,
   ControlType,
   ControlAnchor,
   GeolocationControlOptions,
+  LengthUnit,
   NavigationControlOptions,
   NavigationControlType,
   OverviewMapControlOptions,

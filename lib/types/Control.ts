@@ -31,15 +31,28 @@ export interface BPanoramaControlConstructor extends BControlConstructor {
   new (): BPanoramaControlControl
 }
 
-export interface BNavigationControl extends BControl {}
+export interface BNavigationControl extends BControl {
+  getType(): NavigationControlType
+  setType(type: NavigationControlType): void
+}
 
-export interface BOverviewMapControl extends BControl {}
+export interface BOverviewMapControl extends BControl {
+  changeView(): void
+  setSize(size: BSize): void
+  getSize(): BSize
+}
 
-export interface BScaleControl extends BControl {}
+export interface BScaleControl extends BControl {
+  getUnit(): LengthUnit
+  setUnit(unit: LengthUnit): void
+}
 
 export interface BMapTypeControl extends BControl {}
 
-export interface BGeolocationControl extends BControl {}
+export interface BGeolocationControl extends BControl {
+  location(): void
+  getAddressComponent(): AddressComponent
+}
 
 export interface BPanoramaControlControl extends BControl {}
 
@@ -117,6 +130,19 @@ export enum MapTypeControlType {
   BMAP_MAPTYPE_CONTROL_HORIZONTAL = 0,
   BMAP_MAPTYPE_CONTROL_DROPDOWN = 1,
   BMAP_MAPTYPE_CONTROL_MAP = 2
+}
+
+export enum LengthUnit {
+  BMAP_UNIT_METRIC = 'metric',
+  BMAP_UNIT_IMPERIAL = 'us'
+}
+
+export interface AddressComponent {
+  streetNumber: string
+  street: string
+  district: string
+  city: string
+  province: string
 }
 
 export type ControlType = 'navigation' | 'overviewmap' | 'scale' | 'maptype' | 'geolocation' | 'panorama'
