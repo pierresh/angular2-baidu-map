@@ -32,6 +32,11 @@ import { Component } from '@angular/core'
         <td>See: <a href="#/apidoc/size">Size</a></td>
       </tr>
       <tr>
+        <td>imageSize</td>
+        <td><span class="label">Object</span></td>
+        <td>See: <a href="#/apidoc/size">Size</a></td>
+      </tr>
+      <tr>
         <td>imageUrl</td>
         <td><span class="label">String</span></td>
         <td>URL of the customized icon</td>

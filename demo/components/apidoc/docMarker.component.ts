@@ -91,8 +91,12 @@ import { environment } from '../../environments/environment'
             icon: &#123;
               imageUrl: '/assets/markericon.png',
               size: &#123;
-                height: 60,
-                width: 50
+                height: 35,
+                width: 25
+              &#125;,
+              imageSize: &#123;
+                height: 35,
+                width: 25
               &#125;
             &#125;
           &#125;,
@@ -146,8 +150,12 @@ export class DocMarkerComponent {
           icon: {
             imageUrl: `${environment.baseUrl}assets/markericon.png`,
             size: {
-              height: 60,
-              width: 50
+              height: 35,
+              width: 25
+            },
+            imageSize: {
+              height: 35,
+              width: 25
             }
           }
         },
@@ -163,13 +171,6 @@ export class DocMarkerComponent {
         }
       }
     ]
-
-    setTimeout(() => {
-      this.markers[0].point = {
-        lat: 31.246124,
-        lng: 121.51232
-      }
-    }, 5000)
   }
 
   public showWindow({ marker, map }: any): void {

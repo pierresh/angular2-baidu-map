@@ -14,6 +14,7 @@ export interface BMarker extends Overlay {
   setPosition(position: BPoint): void
   setOffset(offset: BSize): void
   setIcon(icon: BIcon): void
+  getIcon(): BIcon
   enableMassClear(): void
   disableMassClear(): void
 

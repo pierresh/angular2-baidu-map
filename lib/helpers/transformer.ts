@@ -53,7 +53,11 @@ export function toIcon(url: string, size: Size, options: IconOptions): BIcon {
     infoWindowAnchor: toSize(options.infoWindowAnchor),
     printImageUrl: options.printImageUrl
   }
-  return new window.BMap.Icon(url, toSize(size), iconOptions)
+  const icon = new window.BMap.Icon(url, toSize(size), iconOptions)
+  if (options.imageSize) {
+    icon.setImageSize(toSize(options.imageSize))
+  }
+  return icon
 }
 
 export function toMarkerOptions(options: MarkerOptions): BMarkerOptions {
