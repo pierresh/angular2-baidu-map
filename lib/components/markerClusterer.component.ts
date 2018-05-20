@@ -20,8 +20,8 @@ import { BMapInstance } from '../types/Map'
 const LIB_URLS = {
   key: 'markerClusterer',
   scripts: [
-    'http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js',
-    'http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js'
+    'https://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js',
+    'https://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js'
   ]
 }
 
