@@ -1,6 +1,6 @@
 {
   "name": "angular2-baidu-map",
-  "version": "4.2.1",
+  "version": "4.3.0",
   "license": "GPL-3.0",
   "scripts": {
     "start": "ng serve",
