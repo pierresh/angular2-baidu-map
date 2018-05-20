@@ -24,6 +24,7 @@ import { DocPolygonComponent } from './docPolygon.component'
 import { DocHeatmapComponent } from './docHeatmap.component'
 import { DocTileLayerComponent } from './docTileLayer.component'
 import { DocTrafficLayerComponent } from './docTrafficLayer.component'
+import { DocMarkerClustererComponent } from './docMarkerClusterer.component'
 import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
 import { DocTrafficLayerOptionsComponent } from './docTrafficLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
@@ -34,6 +35,9 @@ import { DocSizeComponent } from './docSize.component'
 import { DocMapTypeEnumComponent } from './docMapTypeEnum.component'
 import { ApidocComponent } from './index.component'
 import { SidebarComponent } from './sidebar.component'
+import { DocMarkerLiteralComponent } from './docMarkerLiteral.component'
+import { DocMarkerClustererOptionsComponent } from './docMarkerClustererOptions.component'
+import { DocTextIconStyleComponent } from './docTextIconStyle.component'
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { SidebarComponent } from './sidebar.component'
     DocTrafficLayerOptionsComponent,
     DocControlComponent,
     DocPredictDateComponent,
-    DocMapTypeEnumComponent
+    DocMapTypeEnumComponent,
+    DocMarkerClustererComponent,
+    DocMarkerLiteralComponent,
+    DocMarkerClustererOptionsComponent,
+    DocTextIconStyleComponent
   ],
   exports: [RouterModule],
   imports: [

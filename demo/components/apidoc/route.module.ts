@@ -18,6 +18,7 @@ import { DocHeatmapDataComponent } from './docHeatmapData.component'
 import { DocHeatmapPointComponent } from './docHeatmapPoint.component'
 import { DocTileLayerComponent } from './docTileLayer.component'
 import { DocTrafficLayerComponent } from './docTrafficLayer.component'
+import { DocMarkerClustererComponent } from './docMarkerClusterer.component'
 import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
 import { DocTrafficLayerOptionsComponent } from './docTrafficLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
@@ -27,6 +28,9 @@ import { DocPointComponent } from './docPoint.component'
 import { DocSizeComponent } from './docSize.component'
 import { DocPredictDateComponent } from './docPredictDate.component'
 import { ApidocComponent } from './index.component'
+import { DocMarkerLiteralComponent } from './docMarkerLiteral.component'
+import { DocMarkerClustererOptionsComponent } from './docMarkerClustererOptions.component'
+import { DocTextIconStyleComponent } from './docTextIconStyle.component'
 
 const routes: Routes = [
   {
@@ -69,6 +73,10 @@ const routes: Routes = [
         path: 'trafficlayer'
       },
       {
+        component: DocMarkerClustererComponent,
+        path: 'marker-clusterer'
+      },
+      {
         component: DocControlComponent,
         path: 'control'
       },
@@ -80,6 +88,13 @@ const routes: Routes = [
         path: 'map-options'
       },
       {
+        component: DocMarkerLiteralComponent,
+        data: {
+          name: 'Marker'
+        },
+        path: 'marker-literal'
+      },
+      {
         component: DocMarkerOptionsComponent,
         data: {
           name: 'MarkerOptions'
@@ -87,11 +102,25 @@ const routes: Routes = [
         path: 'marker-options'
       },
       {
+        component: DocMarkerClustererOptionsComponent,
+        data: {
+          name: 'MarkerClustererOptions'
+        },
+        path: 'marker-clusterer-options'
+      },
+      {
         component: DocHeatmapOptionsComponent,
         data: {
           name: 'HeatmapOptions'
         },
         path: 'heatmap-options'
+      },
+      {
+        component: DocTextIconStyleComponent,
+        data: {
+          name: 'TextIconStyle'
+        },
+        path: 'text-icon-style'
       },
       {
         component: DocTileLayerOptionsComponent,

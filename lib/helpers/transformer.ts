@@ -16,6 +16,8 @@ import { BPoint, Point } from '../types/Point'
 import { BSize, Size } from '../types/Size'
 
 import { isNull } from './object'
+import { BMarkerClustererOptions, MarkerClustererOptions } from '../types/MarkerClusterer'
+import { TextIconStyle, BTextIconStyle } from '../types/TextIconOverlay'
 
 export function toPoint(opts: Point): BPoint {
   if (!opts) {
@@ -200,5 +202,58 @@ export function toGeolocationOptions(options: GeolocationControlOptions): BGeolo
   if (!isNull(options.showAddressBar)) {
     opts.showAddressBar = options.showAddressBar
   }
+  return opts
+}
+
+export function toTextIconStyle(style: TextIconStyle): BTextIconStyle {
+  const realStyle: BTextIconStyle = {
+    url: style.url,
+    size: toSize(style.size)
+  }
+  if (style.anchor) {
+    realStyle.anchor = toSize(style.anchor)
+  }
+  if (style.offset) {
+    realStyle.offset = toSize(style.offset)
+  }
+  if (!isNull(style.textSize)) {
+    realStyle.textSize = style.textSize
+  }
+  if (!isNull(style.textColor)) {
+    realStyle.textColor = style.textColor
+  }
+
+  return realStyle
+}
+
+export function toMarkerClustererOptions(options: MarkerClustererOptions): BMarkerClustererOptions {
+  const opts: BMarkerClustererOptions = {}
+
+  if (!options) {
+    return opts
+  }
+
+  if (options.markers) {
+    opts.markers = options.markers.map(
+      m => new window.BMap.Marker(toPoint(m.point), toMarkerOptions(m.options))
+    )
+  }
+
+  if (!isNull(options.girdSize)) {
+    opts.girdSize = options.girdSize
+  }
+  if (!isNull(options.maxZoom)) {
+    opts.maxZoom = options.maxZoom
+  }
+  if (!isNull(options.minClusterSize)) {
+    opts.minClusterSize = options.minClusterSize
+  }
+  if (!isNull(options.isAverangeCenter)) {
+    opts.isAverangeCenter = options.isAverangeCenter
+  }
+  if (options.styles) {
+    opts.styles = options.styles.filter(s => s).map(s => toTextIconStyle(s))
+  }
+
   return opts
 }

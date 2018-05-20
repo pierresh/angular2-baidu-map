@@ -1,7 +1,7 @@
 import { BIcon, Icon } from './Icon'
 import { BLabel } from './Label'
 import { Overlay } from './Overlay'
-import { BPoint } from './Point'
+import { BPoint, Point } from './Point'
 import { BSize, Size } from './Size'
 
 export interface BMarkerConstructor {
@@ -27,6 +27,11 @@ export interface BMarker extends Overlay {
 
   setLabel(label: BLabel): void
   getLabel(): BLabel
+}
+
+export interface Marker {
+  point: Point
+  options?: MarkerOptions
 }
 
 export interface MarkerOptions {

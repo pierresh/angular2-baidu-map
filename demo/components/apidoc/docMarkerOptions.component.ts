@@ -5,7 +5,7 @@ import { Component } from '@angular/core'
   styles: [],
   template: `
   <p>
-    The literal describes a <code>BMap.Marker</code> instance.
+    The literal describes options used by <code>BMap.Marker</code> instance.
   </p>
   <table class="matrix">
     <thead>

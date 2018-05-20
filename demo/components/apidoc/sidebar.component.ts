@@ -44,14 +44,18 @@ import { Component, Input } from '@angular/core'
         <div class="api-nav-item" [class.active]="api === 'circle'"><a href="#/apidoc/circle">circle</a></div>
         <div class="api-nav-item" [class.active]="api === 'polygon'"><a href="#/apidoc/polygon">polygon</a></div>
         <div class="api-nav-item" [class.active]="api === 'heatmap'"><a href="#/apidoc/heatmap">heatmap</a></div>
+        <div class="api-nav-item" [class.active]="api === 'marker-clusterer'"><a href="#/apidoc/marker-clusterer">marker-clusterer</a></div>
         <div class="api-nav-item" [class.active]="api === 'tilelayer'"><a href="#/apidoc/tilelayer">tilelayer</a></div>
         <div class="api-nav-item" [class.active]="api === 'trafficlayer'"><a href="#/apidoc/trafficlayer">trafficlayer</a></div>
         <div class="api-nav-item" [class.active]="api === 'control'"><a href="#/apidoc/control">control</a></div>
         <div class="api-nav-header">Models</div>
         <div class="api-nav-item" [class.active]="api === 'map-options'"><a href="#/apidoc/map-options">MapOptions</a></div>
         <div class="api-nav-item" [class.active]="api === 'center-and-zoom'"><a href="#/apidoc/center-and-zoom">CenterAndZoom</a></div>
+        <div class="api-nav-item" [class.active]="api === 'marker-literal'"><a href="#/apidoc/marker-literal">MarkerLiteral</a></div>
         <div class="api-nav-item" [class.active]="api === 'marker-options'"><a href="#/apidoc/marker-options">MarkerOptions</a></div>
+        <div class="api-nav-item" [class.active]="api === 'marker-clusterer-options'"><a href="#/apidoc/marker-clusterer-options">MarkerClustererOptions</a></div>
         <div class="api-nav-item" [class.active]="api === 'heatmap-options'"><a href="#/apidoc/heatmap-options">HeatmapOptions</a></div>
+        <div class="api-nav-item" [class.active]="api === 'text-icon-style'"><a href="#/apidoc/text-icon-style">TextIconStyle</a></div>
         <div class="api-nav-item" [class.active]="api === 'tilelayer-options'"><a href="#/apidoc/tilelayer-options">TileLayerOptions</a></div>
         <div class="api-nav-item" [class.active]="api === 'trafficlayer-options'"><a href="#/apidoc/trafficlayer-options">TrafficLayerOptions</a></div>
         <div class="api-nav-item" [class.active]="api === 'heatmap-data'"><a href="#/apidoc/heatmap-data">HeatmapData</a></div>

@@ -9,6 +9,7 @@ import { PolygonComponent } from './components/polygon.component'
 import { HeatmapComponent } from './components/heatmap.component'
 import { TileLayderComponent } from './components/tilelayer.component'
 import { TrafficLayderComponent } from './components/trafficlayer.component'
+import { MarkerClustererComponent } from './components/markerClusterer.component'
 import { LOADING_STATE, ScriptLoader, ScriptLoaderConfig } from './providers/scriptLoader'
 
 import { BMap } from './types/BMap'
@@ -24,7 +25,8 @@ import { BMapLib } from './types/BMapLib'
     PolygonComponent,
     HeatmapComponent,
     TileLayderComponent,
-    TrafficLayderComponent
+    TrafficLayderComponent,
+    MarkerClustererComponent
   ],
   exports: [
     MapComponent,
@@ -35,7 +37,8 @@ import { BMapLib } from './types/BMapLib'
     PolygonComponent,
     HeatmapComponent,
     TileLayderComponent,
-    TrafficLayderComponent
+    TrafficLayderComponent,
+    MarkerClustererComponent
   ]
 })
 export class BaiduMapModule {
@@ -49,13 +52,15 @@ export class BaiduMapModule {
 
 export { BMapInstance, MapOptions, BMapType, BProjection, MapTypeEnum } from './types/Map'
 export { Point } from './types/Point'
-export { BMarker, MarkerOptions } from './types/Marker'
+export { BMarker, Marker, MarkerOptions } from './types/Marker'
 export { BPolyline, PolylineOptions } from './types/Polyline'
 export { BCircle, CircleOptions } from './types/Circle'
 export { BPolygon, PolygonOptions } from './types/Polygon'
 export { BHeatmap, HeatmapOptions, HeatmapData } from './types/Heatmap'
 export { BTileLayer, TileLayerOptions, getTilesUrlFunc } from './types/TileLayer'
 export { BTrafficLayer, TrafficLayerOptions, PredictDate } from './types/TrafficLayer'
+export { BMarkerClusterer, MarkerClustererOptions } from './types/MarkerClusterer'
+export { TextIconStyle } from './types/TextIconOverlay'
 export {
   BControl,
   BNavigationControl,
