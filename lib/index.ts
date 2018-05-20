@@ -13,7 +13,6 @@ import { LOADING_STATE, ScriptLoader, ScriptLoaderConfig } from './providers/scr
 
 import { BMap } from './types/BMap'
 import { BMapLib } from './types/BMapLib'
-import { HeatmapLibLoader } from './providers/heatmapLibLoader'
 
 @NgModule({
   declarations: [
@@ -43,7 +42,7 @@ export class BaiduMapModule {
   public static forRoot(_config?: ScriptLoaderConfig): ModuleWithProviders {
     return {
       ngModule: BaiduMapModule,
-      providers: [{ provide: ScriptLoaderConfig, useValue: _config }, ScriptLoader, HeatmapLibLoader]
+      providers: [{ provide: ScriptLoaderConfig, useValue: _config }, ScriptLoader]
     }
   }
 }
@@ -80,12 +79,10 @@ export { BInfoWindowConstructor, BInfoWindowOptions } from './types/InfoWindow'
 
 declare global {
   interface Window {
-    _scriptLoadState: LOADING_STATE
-    _heatmapLibLoadState: LOADING_STATE
+    _scriptLoadState: { [url: string]: LOADING_STATE }
+    _loadingCallbacks: { [url: string]: Array<() => void> }
     BMap: BMap
     BMapLib: BMapLib
-    _loadingCallbacks: Array<() => void>
-    _heatmapLoadingCallbacks: Array<() => void>
     baidumapinit: () => void
     BMAP_PERSPECTIVE_MAP: any
   }

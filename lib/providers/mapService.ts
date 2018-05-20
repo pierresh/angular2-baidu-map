@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core'
-
+import { Injectable, Inject } from '@angular/core'
 import { isBoolean, isNull, omit } from '../helpers/object'
+import { nullCheck } from '../helpers/validate'
 import { BControl } from '../types/Control'
+import { ScriptLoaderConfig } from './scriptLoader'
 import { BMapInstance, MapOptions, isMapTypeEnum } from '../types/Map'
 import { Overlay } from '../types/Overlay'
 import { BTileLayer } from '../types/TileLayer'
@@ -12,18 +13,26 @@ import { ScriptLoader } from './scriptLoader'
 
 @Injectable()
 export class MapService {
+  private _config: ScriptLoaderConfig
+
   private _map: Promise<BMapInstance>
   private _mapResolver: (value: BMapInstance) => void
 
-  constructor(private _loader: ScriptLoader) {
+  constructor(@Inject(ScriptLoaderConfig) config: ScriptLoaderConfig, private _loader: ScriptLoader) {
+    nullCheck(config.ak, 'ak must be provided')
+
+    this._config = config
+
     this._map = new Promise<BMapInstance>((resolve: () => void) => {
       this._mapResolver = resolve
     })
   }
 
   public createMap(el: HTMLElement, mapOptions: MapOptions): Promise<BMapInstance> {
+    const URL = `https://api.map.baidu.com/api?v=2.0&ak=${this._config.ak}&callback=baidumapinit&s=1`
+
     return new Promise(resolve => {
-      this._loader.load(() => {
+      this._loader.load(URL, true, () => {
         const map = new window.BMap.Map(el, omit(mapOptions, 'mapType'))
         this.setOptions(mapOptions)
         this._mapResolver(map)

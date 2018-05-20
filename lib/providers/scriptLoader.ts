@@ -1,6 +1,4 @@
-import { Inject, Injectable } from '@angular/core'
-
-import { nullCheck } from '../helpers/validate'
+import { Injectable } from '@angular/core'
 
 export enum LOADING_STATE {
   NON = 0,
@@ -12,58 +10,66 @@ export class ScriptLoaderConfig {
   public ak: string = ''
 }
 
-window._scriptLoadState = LOADING_STATE.NON
-window._loadingCallbacks = []
+window._scriptLoadState = {}
+window._loadingCallbacks = {}
 
 @Injectable()
 export class ScriptLoader {
-  private _config: ScriptLoaderConfig
-
-  constructor(@Inject(ScriptLoaderConfig) config: ScriptLoaderConfig) {
-    nullCheck(config.ak, 'ak must be provided')
-
-    this._config = config
-  }
-
-  public load(cb: () => void): void {
-    if (window._scriptLoadState === LOADING_STATE.LOADED) {
-      switchDisplay('baidu-map .baidu-map-instance', 'block')
-      switchDisplay('baidu-map .baidu-map-offline', 'none')
+  public load(url: string, isMain: boolean = false, cb: () => void): void {
+    if (window._scriptLoadState[url] === LOADING_STATE.LOADED) {
+      if (isMain) {
+        switchDisplay('baidu-map .baidu-map-instance', 'block')
+        switchDisplay('baidu-map .baidu-map-offline', 'none')
+      }
       return cb()
     }
-    if (window._scriptLoadState === LOADING_STATE.LOADING) {
-      window._loadingCallbacks.push(cb)
+    if (!window._loadingCallbacks[url]) {
+      window._loadingCallbacks[url] = []
+    }
+    if (window._scriptLoadState[url] === LOADING_STATE.LOADING) {
+      window._loadingCallbacks[url].push(cb)
       return
     }
-    window._scriptLoadState = LOADING_STATE.LOADING
-    window._loadingCallbacks.push(cb)
+    window._scriptLoadState[url] = LOADING_STATE.LOADING
+    window._loadingCallbacks[url].push(cb)
 
-    const MAP_URL = `https://api.map.baidu.com/api?v=2.0&ak=${this._config.ak}&callback=baidumapinit&s=1`
-
-    window.baidumapinit = () => {
-      window._scriptLoadState = LOADING_STATE.LOADED
-      switchDisplay('baidu-map .baidu-map-instance', 'block')
-      switchDisplay('baidu-map .baidu-map-offline', 'none')
-      window._loadingCallbacks.forEach((c: () => void) => {
-        c()
-      })
+    if (isMain) {
+      window.baidumapinit = () => {
+        window._scriptLoadState[url] = LOADING_STATE.LOADED
+        switchDisplay('baidu-map .baidu-map-instance', 'block')
+        switchDisplay('baidu-map .baidu-map-offline', 'none')
+        window._loadingCallbacks[url].forEach((c: () => void) => {
+          c()
+        })
+      }
     }
-    appendScriptTag(MAP_URL)
+    appendScriptTag(url, isMain)
   }
 }
 
-function appendScriptTag(url: string) {
+function appendScriptTag(url: string, isMain: boolean) {
   const script = document.createElement('script')
   script.type = 'text/javascript'
   script.src = url
   script.onerror = () => {
-    switchDisplay('baidu-map .baidu-map-offline', 'block')
-    switchDisplay('baidu-map .baidu-map-instance', 'none')
+    if (isMain) {
+      switchDisplay('baidu-map .baidu-map-offline', 'block')
+      switchDisplay('baidu-map .baidu-map-instance', 'none')
+    }
     document.body.removeChild(script)
 
     setTimeout(() => {
-      appendScriptTag(url)
+      appendScriptTag(url, isMain)
     }, 30000)
+  }
+
+  if (!isMain) {
+    script.onload = () => {
+      window._scriptLoadState[url] = LOADING_STATE.LOADED
+      window._loadingCallbacks[url].forEach((c: () => void) => {
+        c()
+      })
+    }
   }
   document.body.appendChild(script)
 }

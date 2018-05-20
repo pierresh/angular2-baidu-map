@@ -12,7 +12,9 @@ import {
 import { nullCheck } from '../helpers/validate'
 import { MapService } from '../providers/mapService'
 import { BHeatmap, HeatmapOptions, HeatmapData } from '../types/Heatmap'
-import { HeatmapLibLoader } from '../providers/heatmapLibLoader'
+import { ScriptLoader } from '../providers/scriptLoader'
+
+const LIB_URL = `https://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js`
 
 @Directive({
   selector: 'heatmap'
@@ -25,13 +27,13 @@ export class HeatmapComponent implements OnInit, OnChanges, OnDestroy {
 
   private heatmap: BHeatmap
 
-  constructor(private _service: MapService, private heatmapLibLoader: HeatmapLibLoader) {}
+  constructor(private _service: MapService, private scriptLoader: ScriptLoader) {}
 
   public ngOnInit() {
     nullCheck(this.dataset, 'dataset is required for <heatmap>')
 
     this._service.getNativeMap().then(() => {
-      return this.heatmapLibLoader.load(() => {
+      return this.scriptLoader.load(LIB_URL, false, () => {
         this._service
           .addOverlay(() => {
             return (this.heatmap = new window.BMapLib.HeatmapOverlay(this.options))
