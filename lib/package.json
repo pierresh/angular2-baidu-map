@@ -1,6 +1,6 @@
 {
   "name": "angular2-baidu-map",
-  "version": "4.2.1",
+  "version": "4.3.0",
   "license": "GPL-3.0",
   "description": "Angular2 component for Baidu map",
   "author": "Howard.Zuo",
@@ -11,6 +11,6 @@
     "dest": "../dist/"
   },
   "peerDependencies": {
-    "@angular/core": "^5.0.1"
+    "@angular/core": "^5.2.11"
   }
 }
