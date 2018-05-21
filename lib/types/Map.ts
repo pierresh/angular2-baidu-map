@@ -1,9 +1,11 @@
+import { BBounds } from './Bounds'
 import { BControl } from './Control'
 import { Overlay } from './Overlay'
 import { BPoint, Point } from './Point'
-import { BPixel } from './Pixel'
 import { BTileLayer } from './TileLayer'
 import { isFunction } from '../helpers/object'
+import { BSize } from './Size'
+import { BMapType } from './MapType'
 
 export interface BMapConstructor {
   new (el: HTMLElement | string, opts: MapOptions): BMapInstance
@@ -31,21 +33,60 @@ export interface BMapInstance {
   disablePinchToZoom(): void
   enablePinchToZoom(): void
 
+  disableAutoResize(): void
+  enableAutoResize(): void
+
   addControl(control: BControl): void
   removeControl(control: BControl): void
 
   addOverlay(control: Overlay): void
   removeOverlay(control: Overlay): void
+  clearOverlays(): void
 
   addTileLayer(tileLayer: BTileLayer): void
   removeTileLayer(tileLayer: BTileLayer): void
 
   setDefaultCursor(cursor: string): void
+  getDefaultCursor(): string
+
   setDraggingCursor(draggingCursor: string): void
+  getDraggingCursor(): string
+
+  setMinZoom(zoom: number): void
+  setMaxZoom(zoom: number): void
+
+  getBounds(): BBounds
+
+  setCenter(center: BPoint | string): void
+  getCenter(): BPoint
+
+  getDistance(start: BPoint, end: BPoint): number
+
   setCurrentCity(city: string): void
   centerAndZoom(center: BPoint, zoom: number): void
 
   setMapType(mapType: BMapType | MapTypeEnum): void
+  getMapType(): BMapType
+
+  getSize(): BSize
+
+  setZoom(zoom: number): void
+  getZoom(): number
+
+  panTo(center: BPoint, opts: BPanOptions): void
+
+  panBy(x: number, y: number, opts: BPanOptions): void
+
+  reset(): void
+
+  highResolutionEnabled(): boolean
+
+  zoomIn(): void
+  zoomOut(): void
+
+  getContainer(): HTMLElement
+
+  closeInfoWindow(): void
 
   addEventListener(event: string, handler: (e: any) => void): void
   removeEventListener(event: string, handler: () => void): void
@@ -78,31 +119,8 @@ export interface CenterAndZoom extends Point {
   zoom?: number
 }
 
-export interface BMapTypeConstructor {
-  new (name: string, layers: BTileLayer | Array<BTileLayer>, options: MapTypeOptions): BMapType
-}
-
-export interface BMapType {
-  getName(): string
-  getTileLayer(): BTileLayer
-  getMinZoom(): number
-  getMaxZoom(): number
-  getProjection(): BProjection
-  getTextColor(): string
-  getTips(): String
-}
-
-export interface MapTypeOptions {
-  minZoom: number
-  maxZoom: number
-  errorImageUrl: string
-  textColor: number
-  tips: string
-}
-
-export interface BProjection {
-  lngLatToPoint(lngLat: BPoint): BPixel
-  pointToLngLat(point: BPixel): BPoint
+export interface BPanOptions {
+  noAnimation: boolean
 }
 
 export enum MapTypeEnum {

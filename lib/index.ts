@@ -50,7 +50,9 @@ export class BaiduMapModule {
   }
 }
 
-export { BMapInstance, MapOptions, BMapType, BProjection, MapTypeEnum } from './types/Map'
+export { BMapInstance, MapOptions, MapTypeEnum } from './types/Map'
+export { BMapType } from './types/MapType'
+export { BProjection } from './types/Projection'
 export { Point } from './types/Point'
 export { BMarker, Marker, MarkerOptions } from './types/Marker'
 export { BPolyline, PolylineOptions } from './types/Polyline'
