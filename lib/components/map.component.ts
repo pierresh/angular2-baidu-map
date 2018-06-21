@@ -83,6 +83,9 @@ export class MapComponent implements OnInit, OnChanges {
 
   public ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
     const opts = changes.options.currentValue as MapOptions
+    if (!opts) {
+      return console.warn('MapOptions change was ignored since you are passing empty value')
+    }
     this._service.setOptions(opts)
   }
 
