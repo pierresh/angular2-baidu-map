@@ -29,7 +29,7 @@ export class MapService {
   }
 
   public createMap(el: HTMLElement, mapOptions: MapOptions): Promise<BMapInstance> {
-    const URL = `https://api.map.baidu.com/api?v=2.0&ak=${this._config.ak}&callback=baidumapinit&s=1`
+    const URL = `https://api.map.baidu.com/api?v=3.0&ak=${this._config.ak}&callback=baidumapinit`
 
     return new Promise(resolve => {
       this._loader.load(URL, true, () => {
