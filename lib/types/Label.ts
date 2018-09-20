@@ -1,5 +1,5 @@
-import { BPointConstructor } from './Point'
-import { BSizeConstructor } from './Size'
+import { BPointConstructor, BPoint } from './Point'
+import { BSize } from './Size'
 
 export interface BLabelConstructor {
   new (content: string, opts?: BLabelOptions): BLabel
