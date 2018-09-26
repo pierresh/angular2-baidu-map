@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import { MapOptions, MarkerOptions, Point } from 'angular2-baidu-map'
+import { Animation, MapOptions, BMarker, BMapInstance, MarkerOptions, Point } from 'angular2-baidu-map'
 import { environment } from '../../environments/environment'
 
 @Component({
@@ -58,74 +58,80 @@ import { environment } from '../../environments/environment'
 
   <h2 class="title">Example</h2>
   <baidu-map [options]="opts">
-      <marker *ngFor="let marker of markers" [point]="marker.point" [options]="marker.options" (clicked)="showWindow($event)"></marker>
+      <marker *ngFor="let marker of markers" [point]="marker.point" [options]="marker.options" (clicked)="showWindow($event)" (loaded)="setAnimation($event)" ></marker>
   </baidu-map>
 
   <div class="snippet" highlight>
     <pre><code class="html">
-    &lt;baidu-map [options]="opts"&gt;
-      &lt;marker *ngFor="let marker of markers" [point]="marker.point" [options]="marker.options" (clicked)="showWindow($event)"&gt;&lt;/marker&gt;
-    &lt;/baidu-map&gt;
+&lt;baidu-map [options]="opts"&gt;
+  &lt;marker *ngFor="let marker of markers" [point]="marker.point" [options]="marker.options" (clicked)="showWindow($event)" (loaded)="setAnimation($event)" &gt;&lt;/marker&gt;
+&lt;/baidu-map&gt;
   </code></pre>
   </div>
   <br/>
 
   <div class="snippet" highlight>
   <pre><code class="typescript">
-  export class DemoComponent &#123;
-    public opts: MapOptions
-    public markers: Array<&#123; point: Point; options?: MarkerOptions &#125;>
-  
-    constructor() &#123;
-      this.opts = &#123;
-        centerAndZoom: &#123;
-          lat: 31.244604,
-          lng: 121.51606,
-          zoom: 16
-        &#125;
+import &#123; Animation, MapOptions, BMarker, BMapInstance, MarkerOptions, Point &#125; from 'angular2-baidu-map'
+
+export class DemoComponent &#123;
+  public opts: MapOptions
+  public markers: Array<&#123; point: Point; options?: MarkerOptions &#125;>
+
+  constructor() &#123;
+    this.opts = &#123;
+      centerAndZoom: &#123;
+        lat: 31.244604,
+        lng: 121.51606,
+        zoom: 16
       &#125;
-  
-      this.markers = [
-        &#123;
-          options: &#123;
-            icon: &#123;
-              imageUrl: '/assets/markericon.png',
-              size: &#123;
-                height: 35,
-                width: 25
-              &#125;,
-              imageSize: &#123;
-                height: 35,
-                width: 25
-              &#125;
+    &#125;
+
+    this.markers = [
+      &#123;
+        options: &#123;
+          icon: &#123;
+            imageUrl: '/assets/markericon.png',
+            size: &#123;
+              height: 35,
+              width: 25
+            &#125;,
+            imageSize: &#123;
+              height: 35,
+              width: 25
             &#125;
-          &#125;,
-          point: &#123;
-            lat: 31.244604,
-            lng: 121.51606
           &#125;
         &#125;,
-        &#123;
-          point: &#123;
-            lat: 31.246124,
-            lng: 121.51232
-          &#125;
+        point: &#123;
+          lat: 31.244604,
+          lng: 121.51606
         &#125;
-      ]
+      &#125;,
+      &#123;
+        point: &#123;
+          lat: 31.246124,
+          lng: 121.51232
+        &#125;
+      &#125;
+    ]
 
 
-    &#125;
-  
-    public showWindow(&#123; e, marker, map &#125;: any): void &#123;
-      map.openInfoWindow(
-        new window.BMap.InfoWindow('地址：浦东南路360号', &#123;
-          offset: new window.BMap.Size(0, -30),
-          title: '新上海国际大厦'
-        &#125;),
-        marker.getPosition()
-      )
-    &#125;
-  &#125;  
+  &#125;
+
+  public setAnimation(marker: BMarker): void &#123;
+    marker.setAnimation(Animation.BMAP_ANIMATION_BOUNCE)
+  &#125;
+
+  public showWindow(&#123; marker, map &#125;: &#123; marker: BMarker; map: BMapInstance &#125;): void &#123;
+    map.openInfoWindow(
+      new window.BMap.InfoWindow('地址：浦东南路360号', &#123;
+        offset: new window.BMap.Size(0, -30),
+        title: '新上海国际大厦'
+      &#125;),
+      marker.getPosition()
+    )
+  &#125;
+&#125;  
   </code></pre>
   </div>
 
@@ -173,7 +179,11 @@ export class DocMarkerComponent {
     ]
   }
 
-  public showWindow({ marker, map }: any): void {
+  public setAnimation(marker: BMarker): void {
+    marker.setAnimation(Animation.BMAP_ANIMATION_BOUNCE)
+  }
+
+  public showWindow({ marker, map }: { marker: BMarker; map: BMapInstance }): void {
     map.openInfoWindow(
       new window.BMap.InfoWindow('地址：浦东南路360号', {
         offset: new window.BMap.Size(0, -30),

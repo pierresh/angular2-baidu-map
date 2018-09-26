@@ -5,6 +5,7 @@ import { BPoint, Point } from './Point'
 import { BTileLayer } from './TileLayer'
 import { isFunction } from '../helpers/object'
 import { BSize } from './Size'
+import { BInfoWindow } from './InfoWindow'
 import { BMapType } from './MapType'
 
 export interface BMapConstructor {
@@ -87,6 +88,8 @@ export interface BMapInstance {
   getContainer(): HTMLElement
 
   closeInfoWindow(): void
+
+  openInfoWindow(infoWnd: BInfoWindow, point: BPoint): void
 
   addEventListener(event: string, handler: (e: any) => void): void
   removeEventListener(event: string, handler: () => void): void

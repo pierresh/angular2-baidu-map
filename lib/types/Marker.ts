@@ -3,6 +3,7 @@ import { BLabel } from './Label'
 import { Overlay } from './Overlay'
 import { BPoint, Point } from './Point'
 import { BSize, Size } from './Size'
+import { Animation } from './Animation'
 
 export interface BMarkerConstructor {
   new (point: BPoint, options?: BMarkerOptions): BMarker
@@ -27,8 +28,12 @@ export interface BMarker extends Overlay {
 
   setLabel(label: BLabel): void
   getLabel(): BLabel
-  
+
   setTop(isTop: boolean): void
+
+  setAnimation(animation: Animation | null): void
+
+  getPosition(): BPoint
 }
 
 export interface Marker {

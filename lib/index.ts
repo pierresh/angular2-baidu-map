@@ -82,7 +82,8 @@ export {
   MapTypeControlOptions,
   MapTypeControlType
 } from './types/Control'
-export { BInfoWindowConstructor, BInfoWindowOptions } from './types/InfoWindow'
+export { BInfoWindowConstructor, BInfoWindowOptions, BInfoWindow } from './types/InfoWindow'
+export { Animation } from './types/Animation'
 
 declare global {
   interface Window {
