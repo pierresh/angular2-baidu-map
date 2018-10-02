@@ -4,36 +4,36 @@ import { Component, Input } from '@angular/core'
   selector: 'api-sidebar',
   styles: [
     `
-  :host {
-      display: block;
-      width: 225px;
-      padding: 15px;
-      border: 1px solid #cccccc;
-      border-radius: 4px 0 0 4px;
-  }
-  
-  :host .api-nav .api-nav-header {
-      font-weight: bold;
-  }
-  
-  :host .api-nav > .api-nav-item {
-      padding: 3px 0 3px 10px;
-  }
-  
-  :host .api-nav > .api-nav-item.active {
-      background-color: #eee;
-  }
-  
-  :host .api-nav > .api-nav-item > a {
-      text-decoration: none;
-  }
-  
-  @media screen and (max-width: 960px) {
       :host {
-          display: none;
+        display: block;
+        width: 225px;
+        padding: 15px;
+        border: 1px solid #cccccc;
+        border-radius: 4px 0 0 4px;
       }
-  }
-  `
+
+      :host .api-nav .api-nav-header {
+        font-weight: bold;
+      }
+
+      :host .api-nav > .api-nav-item {
+        padding: 3px 0 3px 10px;
+      }
+
+      :host .api-nav > .api-nav-item.active {
+        background-color: #eee;
+      }
+
+      :host .api-nav > .api-nav-item > a {
+        text-decoration: none;
+      }
+
+      @media screen and (max-width: 960px) {
+        :host {
+          display: none;
+        }
+      }
+    `
   ],
   template: `
     <div class="api-nav">
@@ -47,6 +47,7 @@ import { Component, Input } from '@angular/core'
         <div class="api-nav-item" [class.active]="api === 'marker-clusterer'"><a href="#/apidoc/marker-clusterer">marker-clusterer</a></div>
         <div class="api-nav-item" [class.active]="api === 'tilelayer'"><a href="#/apidoc/tilelayer">tilelayer</a></div>
         <div class="api-nav-item" [class.active]="api === 'trafficlayer'"><a href="#/apidoc/trafficlayer">trafficlayer</a></div>
+        <div class="api-nav-item" [class.active]="api === 'canvaslayer'"><a href="#/apidoc/canvaslayer">canvaslayer</a></div>
         <div class="api-nav-item" [class.active]="api === 'control'"><a href="#/apidoc/control">control</a></div>
         <div class="api-nav-header">Models</div>
         <div class="api-nav-item" [class.active]="api === 'map-options'"><a href="#/apidoc/map-options">MapOptions</a></div>
@@ -58,6 +59,7 @@ import { Component, Input } from '@angular/core'
         <div class="api-nav-item" [class.active]="api === 'text-icon-style'"><a href="#/apidoc/text-icon-style">TextIconStyle</a></div>
         <div class="api-nav-item" [class.active]="api === 'tilelayer-options'"><a href="#/apidoc/tilelayer-options">TileLayerOptions</a></div>
         <div class="api-nav-item" [class.active]="api === 'trafficlayer-options'"><a href="#/apidoc/trafficlayer-options">TrafficLayerOptions</a></div>
+        <div class="api-nav-item" [class.active]="api === 'canvaslayer-options'"><a href="#/apidoc/canvaslayer-options">CanvasLayerOptions</a></div>
         <div class="api-nav-item" [class.active]="api === 'heatmap-data'"><a href="#/apidoc/heatmap-data">HeatmapData</a></div>
         <div class="api-nav-item" [class.active]="api === 'heatmap-point'"><a href="#/apidoc/heatmap-point">HeatmapPoint</a></div>
         <div class="api-nav-item" [class.active]="api === 'predictdate'"><a href="#/apidoc/predictdate">PredictDate</a></div>
@@ -72,7 +74,8 @@ import { Component, Input } from '@angular/core'
     `
 })
 export class SidebarComponent {
-  @Input() public api: string
+  @Input()
+  public api: string
 
   constructor() {}
 }

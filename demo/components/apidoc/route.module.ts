@@ -18,9 +18,11 @@ import { DocHeatmapDataComponent } from './docHeatmapData.component'
 import { DocHeatmapPointComponent } from './docHeatmapPoint.component'
 import { DocTileLayerComponent } from './docTileLayer.component'
 import { DocTrafficLayerComponent } from './docTrafficLayer.component'
+import { DocCanvasLayerComponent } from './docCanvasLayer.component'
 import { DocMarkerClustererComponent } from './docMarkerClusterer.component'
 import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
 import { DocTrafficLayerOptionsComponent } from './docTrafficLayerOptions.component'
+import { DocCanvasLayerOptionsComponent } from './docCanvasLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocMapTypeEnumComponent } from './docMapTypeEnum.component'
@@ -71,6 +73,10 @@ const routes: Routes = [
       {
         component: DocTrafficLayerComponent,
         path: 'trafficlayer'
+      },
+      {
+        component: DocCanvasLayerComponent,
+        path: 'canvaslayer'
       },
       {
         component: DocMarkerClustererComponent,
@@ -135,6 +141,13 @@ const routes: Routes = [
           name: 'TrafficLayerOptions'
         },
         path: 'trafficlayer-options'
+      },
+      {
+        component: DocCanvasLayerOptionsComponent,
+        data: {
+          name: 'CanvasLayerOptions'
+        },
+        path: 'canvaslayer-options'
       },
       {
         component: DocHeatmapDataComponent,

@@ -24,9 +24,11 @@ import { DocPolygonComponent } from './docPolygon.component'
 import { DocHeatmapComponent } from './docHeatmap.component'
 import { DocTileLayerComponent } from './docTileLayer.component'
 import { DocTrafficLayerComponent } from './docTrafficLayer.component'
+import { DocCanvasLayerComponent } from './docCanvasLayer.component'
 import { DocMarkerClustererComponent } from './docMarkerClusterer.component'
 import { DocTileLayerOptionsComponent } from './docTileLayerOptions.component'
 import { DocTrafficLayerOptionsComponent } from './docTrafficLayerOptions.component'
+import { DocCanvasLayerOptionsComponent } from './docCanvasLayerOptions.component'
 import { DocNavigationControlOptionsComponent } from './docNavigationControlOptions.component'
 import { DocNavigationControlTypeComponent } from './docNavigationControlType.component'
 import { DocPredictDateComponent } from './docPredictDate.component'
@@ -63,8 +65,10 @@ import { DocTextIconStyleComponent } from './docTextIconStyle.component'
     DocHeatmapComponent,
     DocTileLayerComponent,
     DocTrafficLayerComponent,
+    DocCanvasLayerComponent,
     DocTileLayerOptionsComponent,
     DocTrafficLayerOptionsComponent,
+    DocCanvasLayerOptionsComponent,
     DocControlComponent,
     DocPredictDateComponent,
     DocMapTypeEnumComponent,

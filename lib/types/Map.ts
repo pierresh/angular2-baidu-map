@@ -7,6 +7,7 @@ import { isFunction } from '../helpers/object'
 import { BSize } from './Size'
 import { BInfoWindow } from './InfoWindow'
 import { BMapType } from './MapType'
+import { BPixel } from './Pixel'
 
 export interface BMapConstructor {
   new (el: HTMLElement | string, opts: MapOptions): BMapInstance
@@ -88,6 +89,10 @@ export interface BMapInstance {
   getContainer(): HTMLElement
 
   closeInfoWindow(): void
+
+  pixelToPoint(pixel: BPixel): BPoint
+
+  pointToPixel(point: BPoint): BPixel
 
   openInfoWindow(infoWnd: BInfoWindow, point: BPoint): void
 

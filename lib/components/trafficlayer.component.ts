@@ -6,10 +6,12 @@ import { BTrafficLayer, TrafficLayerOptions } from '../types/TrafficLayer'
 @Directive({
   selector: 'trafficlayer'
 })
-export class TrafficLayderComponent implements OnInit, OnDestroy {
-  @Input() private options: TrafficLayerOptions
+export class TrafficLayerComponent implements OnInit, OnDestroy {
+  @Input()
+  private options: TrafficLayerOptions
 
-  @Output() private loaded = new EventEmitter()
+  @Output()
+  private loaded = new EventEmitter()
 
   private trafficlayer: BTrafficLayer
 

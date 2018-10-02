@@ -7,11 +7,14 @@ import { BPixel } from '../types/Pixel'
 @Directive({
   selector: 'tilelayer'
 })
-export class TileLayderComponent implements OnInit, OnDestroy {
-  @Input() private getTilesUrl: getTilesUrlFunc
-  @Input() private options: TileLayerOptions
+export class TileLayerComponent implements OnInit, OnDestroy {
+  @Input()
+  private getTilesUrl: getTilesUrlFunc
+  @Input()
+  private options: TileLayerOptions
 
-  @Output() private loaded = new EventEmitter()
+  @Output()
+  private loaded = new EventEmitter()
 
   private tilelayer: BTileLayer
 

@@ -7,8 +7,9 @@ import { PolylineComponent } from './components/polyline.component'
 import { CircleComponent } from './components/circle.component'
 import { PolygonComponent } from './components/polygon.component'
 import { HeatmapComponent } from './components/heatmap.component'
-import { TileLayderComponent } from './components/tilelayer.component'
-import { TrafficLayderComponent } from './components/trafficlayer.component'
+import { TileLayerComponent } from './components/tilelayer.component'
+import { TrafficLayerComponent } from './components/trafficlayer.component'
+import { CanvasLayerComponent } from './components/canvaslayer.component'
 import { MarkerClustererComponent } from './components/markerClusterer.component'
 import { LOADING_STATE, ScriptLoader, ScriptLoaderConfig } from './providers/scriptLoader'
 
@@ -24,8 +25,9 @@ import { BMapLib } from './types/BMapLib'
     CircleComponent,
     PolygonComponent,
     HeatmapComponent,
-    TileLayderComponent,
-    TrafficLayderComponent,
+    TileLayerComponent,
+    TrafficLayerComponent,
+    CanvasLayerComponent,
     MarkerClustererComponent
   ],
   exports: [
@@ -36,8 +38,9 @@ import { BMapLib } from './types/BMapLib'
     CircleComponent,
     PolygonComponent,
     HeatmapComponent,
-    TileLayderComponent,
-    TrafficLayderComponent,
+    TileLayerComponent,
+    TrafficLayerComponent,
+    CanvasLayerComponent,
     MarkerClustererComponent
   ]
 })
@@ -61,6 +64,7 @@ export { BPolygon, PolygonOptions } from './types/Polygon'
 export { BHeatmap, HeatmapOptions, HeatmapData } from './types/Heatmap'
 export { BTileLayer, TileLayerOptions, getTilesUrlFunc } from './types/TileLayer'
 export { BTrafficLayer, TrafficLayerOptions, PredictDate } from './types/TrafficLayer'
+export { BCanvasLayer, CanvasLayerOptions } from './types/CanvasLayer'
 export { BMarkerClusterer, MarkerClustererOptions } from './types/MarkerClusterer'
 export { TextIconStyle } from './types/TextIconOverlay'
 export {

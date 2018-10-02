@@ -18,6 +18,7 @@ import { BCircleConstructor } from './Circle'
 import { BPolygonConstructor } from './Polygon'
 import { BTileLayerConstructor } from './TileLayer'
 import { BTrafficLayerConstructor } from './TrafficLayer'
+import { BCanvasLayerConstructor } from './CanvasLayer'
 
 export interface BMap {
   Map: BMapConstructor
@@ -27,6 +28,7 @@ export interface BMap {
   Polygon: BPolygonConstructor
   TileLayer: BTileLayerConstructor
   TrafficLayer: BTrafficLayerConstructor
+  CanvasLayer: BCanvasLayerConstructor
   Point: BPointConstructor
   Size: BSizeConstructor
   Icon: BIconConstructor

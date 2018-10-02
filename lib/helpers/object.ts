@@ -18,6 +18,10 @@ export function isString(obj: any): obj is boolean {
   return Object.prototype.toString.call(obj) === '[object String]'
 }
 
+export function isNumber(obj: any): obj is boolean {
+  return Object.prototype.toString.call(obj) === '[object Number]'
+}
+
 export function omit<T>(obj: T, ...keys: Array<string>): T {
   const rawKeys = Object.keys(obj)
   const finalKeys = rawKeys.filter(k => keys.indexOf(k) < 0)
