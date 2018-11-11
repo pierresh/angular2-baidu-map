@@ -6,66 +6,77 @@ import { PolylineOptions, Point, MapOptions, BPolyline } from 'angular2-baidu-ma
   selector: 'doc-polyline',
   styles: [],
   template: `
-  <p>
-    The <code>polyline</code> component is sub-component of <code>baidu-map</code>. It is used to add <code>BMap.Polyline</code> to the map.
-  </p>
-  <h2 class="title">Usage</h2>
-  <div class="snippet" highlight>
-    <pre><code class="html">
+    <p>
+      The <code>polyline</code> component is sub-component of <code>baidu-map</code>. It is used to add
+      <code>BMap.Polyline</code> to the map.
+    </p>
+    <h2 class="title">Usage</h2>
+    <div class="snippet" highlight>
+      <pre><code class="html">
     &lt;baidu-map [options]="expression"&gt;
       &lt;polyline [points]="expression" [options]="expression" (loaded)="expression"&gt;&lt;/polyline&gt;    
     &lt;/baidu-map&gt;
     </code></pre>
-  </div>
+    </div>
 
-  <h2 class="title">Attributes</h2>
-  <blockquote>Required properties are in red</blockquote>
+    <h2 class="title">Attributes</h2>
+    <blockquote>Required properties are in red</blockquote>
 
-  <table class="matrix">
-    <thead>
-      <tr>
-        <th style="width: 80px;">Param</th>
-        <th>Type</th>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>points</td>
-        <td><span class="label required">expression</span></td>
-        <td>How the polyline draws. It should be an Array of point. See <a href="#/apidoc/point">point</a></td>
-      </tr>
-      <tr>
-        <td>options</td>
-        <td><span class="label">expression</span></td>
-        <td>
-        Literal for constructing polyline. See <a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a3b12">PolylineOptions</a>
-        </td>
-      </tr>
-      <tr>
-        <td>loaded</td>
-        <td><span class="label">expression</span></td>
-        <td>Expression to evaluate upon polyline load event. (<code>$event</code> object is available as <a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a3b11" target="_blank">BMap.Polyline</a>)</td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="width: 80px;">Param</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>points</td>
+          <td><span class="label required">expression</span></td>
+          <td>
+            How the polyline draws. It should be an Array of point. See <a href="#/apidoc/point">point</a>
+          </td>
+        </tr>
+        <tr>
+          <td>options</td>
+          <td><span class="label">expression</span></td>
+          <td>
+            Literal for constructing polyline. See
+            <a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a3b12"
+              >PolylineOptions</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>loaded</td>
+          <td><span class="label">expression</span></td>
+          <td>
+            Expression to evaluate upon polyline load event. (<code>$event</code> object is available as
+            <a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html#a3b11" target="_blank"
+              >BMap.Polyline</a
+            >)
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <h2 class="title">Example</h2>
-  <baidu-map [options]="opts">
+    <h2 class="title">Example</h2>
+    <baidu-map [options]="opts">
       <polyline [points]="points" [options]="polylineOptions" (loaded)="polylineLoaded($event)"></polyline>
-  </baidu-map>
+    </baidu-map>
 
-  <div class="snippet" highlight>
-    <pre><code class="html">
+    <div class="snippet" highlight>
+      <pre><code class="html">
     &lt;baidu-map [options]="opts"&gt;
       &lt;polyline [points]="points" [options]="polylineOptions" (loaded)="polylineLoaded($event)"&gt;&lt;/polyline&gt;
     &lt;/baidu-map&gt;
   </code></pre>
-  </div>
-  <br/>
+    </div>
+    <br />
 
-  <div class="snippet" highlight>
-  <pre><code class="typescript">
+    <div class="snippet" highlight>
+      <pre><code class="typescript">
   export class DemoComponent &#123;
     public opts: MapOptions
     public points: Array&lt;Point&gt;
@@ -98,6 +109,23 @@ import { PolylineOptions, Point, MapOptions, BPolyline } from 'angular2-baidu-ma
         strokeWeight: 2
       &#125;
 
+      setTimeout(() => &#123;
+        this.points = [
+          &#123;
+            lat: 39.945255,
+            lng: 116.372648
+          &#125;,
+          &#123;
+            lat: 39.916042,
+            lng: 116.434452
+          &#125;,
+          &#123;
+            lat: 39.902316,
+            lng: 116.372648
+          &#125;
+        ]
+      &#125;, 5000)
+
 
     &#125;
   
@@ -106,9 +134,8 @@ import { PolylineOptions, Point, MapOptions, BPolyline } from 'angular2-baidu-ma
     &#125;
   &#125;
   </code></pre>
-  </div>
-
-    `
+    </div>
+  `
 })
 export class DocPolylineComponent {
   public opts: MapOptions
@@ -143,6 +170,23 @@ export class DocPolylineComponent {
       strokeColor: 'blue',
       strokeWeight: 2
     }
+
+    setTimeout(() => {
+      this.points = [
+        {
+          lat: 39.945255,
+          lng: 116.372648
+        },
+        {
+          lat: 39.916042,
+          lng: 116.434452
+        },
+        {
+          lat: 39.902316,
+          lng: 116.372648
+        }
+      ]
+    }, 5000)
   }
 
   public polylineLoaded(polyline: BPolyline): void {
